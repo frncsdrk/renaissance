@@ -1,0 +1,24 @@
+{
+  "name": "potion",
+  "version": "0.1.0",
+  "description": "js components",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/frncsdrk/potion.git"
+  },
+  "keywords": [
+    "potion",
+    "component",
+    "js"
+  ],
+  "author": "frncsdrk",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/frncsdrk/potion/issues"
+  },
+  "homepage": "https://github.com/frncsdrk/potion#readme"
+}

@@ -1,0 +1,23 @@
+{
+  "name": "potion",
+  "description": "js components",
+  "main": "index.js",
+  "authors": [
+    "frncsdrk"
+  ],
+  "license": "ISC",
+  "keywords": [
+    "potion",
+    "component",
+    "js"
+  ],
+  "homepage": "https://github.com/frncsdrk/potion",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}
