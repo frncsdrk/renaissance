@@ -1,2 +1,2 @@
 # potion
-js components
+healing js components
