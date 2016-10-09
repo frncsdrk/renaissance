@@ -3,9 +3,12 @@
 // fire app initialize
 
 function init() {
-    component.attachTo(document);
-    component.attachTo('#content-wrapper');
+    testComponent.attachTo('#test-component-button');
+    
+    testComponent.attachTo('.button2');
 
     // app.debug(true);
-    app.init();
+    // app.init();
 }
+
+init();
