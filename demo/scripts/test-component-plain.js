@@ -1,5 +1,6 @@
 // plain test component
 
+/*
 var component = new Component();
 
 component.add = function() {};
@@ -7,21 +8,27 @@ component.add = function() {};
 component.after('initialize', function() {
     // ...
 });
+*/
 
 /////////////////////////////////////////////
 
-function testComponent() {
-    // this.$: element reference
-    // keyword: after
-    this.meta = {};
+var testComponent = potion.defineComponent(
+    function testComponent() {
+        // this.$: element reference
+        // keyword: after
+        this.setMeta({});
 
-    this.add = function() {};
+        this.add = function() {};
 
-    // keyword: after
-    this.after('initialize', function() {
-        // keyword: on
-        this.on();
-    });
+        // keyword: after
+        // var self = this;
+        this.after('init', function(component) {
+            // keyword: on
+            component.on('click', function() { console.log('testComponent click'); });
+            console.log('component:', component);
+            // component.node.addEventListener('click', function() { console.log('testComponent click'); });
+        });
 
-    return this;
-}
+        // return this;
+    }
+)
