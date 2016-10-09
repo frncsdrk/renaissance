@@ -21,7 +21,19 @@ var testComponent = potion.defineComponent(
             // content: self.node.innerHTML
         });
 
-        this.add = function() {};
+        var meta = {
+            storage: potion.storage.localStorage
+        }
+
+        this.add = function() {
+            if (!meta.storage.get('counter')) {
+                meta.storage.save('counter', 1);
+            }
+            else {
+                var val = parseInt(meta.storage.get('counter'), 10) + 1;
+                meta.storage.update('counter', val);
+            }
+        };
 
         this.rename = function() {
             self.node.innerHTML = 'yolo button';
@@ -33,7 +45,8 @@ var testComponent = potion.defineComponent(
             component.on('click', function() {
                 console.log('testComponent click');
                 // console.log('testComponent meta content:', self.meta.content);
-                self.rename();
+                // self.rename();
+                self.add();
             });
             console.log('component:', component);
             // component.node.addEventListener('click', function() { console.log('testComponent click'); });
