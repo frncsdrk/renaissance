@@ -1,7 +1,9 @@
 // main rjs component
 requirejs.config({
     baseUrl: ''
-    , paths: {}
+    , paths: {
+        'lib': '../lib'
+    }
 });
 
 require(
@@ -9,7 +11,7 @@ require(
         //
     ]
     , function() {
-        require(['scripts/page-rjs'], function(initialize) {
+        require(['scripts/rjs/page'], function(initialize) { // scripts
             initialize();
         });
     }

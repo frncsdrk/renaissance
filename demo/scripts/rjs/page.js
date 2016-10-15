@@ -2,8 +2,9 @@
 'use strict';
 
 define(
-    ['test-rjs-component']
+    ['scripts/rjs/test']
     , function(testComponent) {
+        console.log('in page');
         function init() {
             testComponent.attachTo('#test-component-button');
 
