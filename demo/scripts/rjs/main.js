@@ -1,8 +1,10 @@
 // main rjs component
 requirejs.config({
-    baseUrl: ''
+    baseUrl: './'
     , paths: {
-        'lib': '../lib'
+        'text': 'bower_components/text/text'
+        , 'lib': '../lib'
+        , 'templates': 'templates'
     }
 });
 
