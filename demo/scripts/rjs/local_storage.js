@@ -28,6 +28,8 @@ define(
             };
         }
 
-        potion.registerAdapter(potion.storage, 'localStorage', localStorageAdapter);
+        return function() {
+            potion.registerAdapter(potion.storage, 'localStorage', localStorageAdapter);
+        };
     }
 );
