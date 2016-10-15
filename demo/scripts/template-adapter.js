@@ -135,4 +135,4 @@ function underscoreTemplateAdapter() {
     };
 };
 
-potion.registerAdpater(potion.template, 'underscore', underscoreTemplateAdapter);
+potion.registerAdapter(potion.template, 'underscore', underscoreTemplateAdapter);
