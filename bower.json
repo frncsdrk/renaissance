@@ -21,6 +21,7 @@
     "tests"
   ],
   "dependencies": {
-    "requirejs": "^2.3.2"
+    "requirejs": "^2.3.2",
+    "text": "requirejs-text#^2.0.15"
   }
 }

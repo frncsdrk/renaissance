@@ -20,5 +20,6 @@
   "bugs": {
     "url": "https://github.com/frncsdrk/potion/issues"
   },
-  "homepage": "https://github.com/frncsdrk/potion#readme"
+  "homepage": "https://github.com/frncsdrk/potion#readme",
+  "dependencies": {}
 }
