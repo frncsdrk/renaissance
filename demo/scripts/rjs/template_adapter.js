@@ -132,14 +132,14 @@ define(
                 return template;
             };
 
-            // return {
-                // tmpl: template
-            // };
-
-            this.render = function(templateMarkup, data) {
-                var tmpl = template(templateMarkup);
-                return tmpl(data);
+            return {
+                tmpl: template
             };
+
+            // this.render = function(templateMarkup, data) {
+                // var tmpl = template(templateMarkup);
+                // return tmpl(data);
+            // };
         };
 
         return function() {
