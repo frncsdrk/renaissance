@@ -25,6 +25,8 @@ define(
                         var val = parseInt(meta.storage.get('counter'), 10) + 1;
                         meta.storage.update('counter', val);
                     }
+
+                    this.trigger('counter_list.render')
                 };
 
                 this.rename = function() {
