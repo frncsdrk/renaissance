@@ -3,21 +3,20 @@
 
 define(
     [
-        'lib/coreRjs'
+        'lib/component'
+        , 'lib/template'
         , 'text!templates/counterLi.html'
     ]
-    , function(potion, counterTmpl) {
+    , function(defineComponent, potionTemplate, counterTmpl) {
         function counterList() {
             var self = this;
 
             var meta = {
-                underscore: potion.template.underscore
+                underscore: potionTemplate.underscore
             };
             var template = meta.underscore.tmpl(counterTmpl);
 
             this.render = function(e, data) {
-                console.log('counter list render');
-                console.log('tmpl result:', template(data));
                 // var elem = document.createElement('div');
                 // elem.innerHTML = template(data);
                 // var children = elem.childNodes;
@@ -35,6 +34,6 @@ define(
             });
         }
 
-        return potion.defineComponent(counterList);
+        return defineComponent(counterList);
     }
 );

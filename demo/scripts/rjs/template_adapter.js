@@ -3,7 +3,7 @@
 
 define(
     [
-        'lib/coreRjs'
+        'lib/core'
     ]
     , function(potion) {
         function underscoreTemplateAdapter() {
