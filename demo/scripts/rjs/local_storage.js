@@ -2,7 +2,7 @@
 'use strict';
 
 define(
-    ['lib/coreRjs'],
+    ['lib/core'],
     function(potion) {
         function localStorageAdapter() {
             this.save = function(key, value) {
