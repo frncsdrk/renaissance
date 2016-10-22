@@ -2,8 +2,11 @@
 'use strict';
 
 define(
-    ['lib/core'],
-    function(potion) {
+    [
+        'lib/adapter'
+        , 'lib/storage'
+    ],
+    function(registerAdapter, potionStorage) {
         function localStorageAdapter() {
             this.save = function(key, value) {
                 localStorage.setItem(key, value);
@@ -29,7 +32,7 @@ define(
         }
 
         return function() {
-            potion.registerAdapter(potion.storage, 'localStorage', localStorageAdapter);
+            registerAdapter(potionStorage, 'localStorage', localStorageAdapter);
         };
     }
 );
