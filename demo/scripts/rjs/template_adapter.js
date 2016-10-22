@@ -3,9 +3,10 @@
 
 define(
     [
-        'lib/core'
+        'lib/adapter'
+        , 'lib/template'
     ]
-    , function(potion) {
+    , function(registerAdapter, potionTemplate) {
         function underscoreTemplateAdapter() {
 
             var _ = {};
@@ -143,7 +144,7 @@ define(
         };
 
         return function() {
-            potion.registerAdapter(potion.template, 'underscore', underscoreTemplateAdapter);
+            registerAdapter(potionTemplate, 'underscore', underscoreTemplateAdapter);
         };
     }
 );
