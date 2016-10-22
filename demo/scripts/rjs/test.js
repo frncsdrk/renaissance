@@ -27,7 +27,7 @@ define(
             };
 
             this.rename = function() {
-                self.node.innerHTML = 'yolo button';
+                self.node.innerHTML += ' yolo button';
             };
 
             // keyword: after
@@ -36,7 +36,7 @@ define(
                 component.on('click', function() {
                     console.log('testComponent click');
                     // console.log('testComponent meta content:', self.meta.content);
-                    // self.rename();
+                    self.rename();
                     self.add();
                 });
                 console.log('component:', component);
