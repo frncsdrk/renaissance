@@ -25,12 +25,14 @@ define(
                     // self.node.appendChild(children[i]); // template(data)
                 // }
 
+                console.log('data:', data);
+
                 self.appendHTML(template(data), self.node);
             };
 
             this.after('init', function(component) {
                 // component.on('');
-                component.expose('counter_list', 'render', self.render);
+                component.expose('counter_list.render', self.render);
             });
         }
 
