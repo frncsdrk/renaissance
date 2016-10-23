@@ -23,7 +23,7 @@ define(
                     meta.storage.update('counter', val);
                 }
 
-                this.trigger('counter_list.render')
+                this.trigger('counter_list.render', { content: 'fresh' });
             };
 
             this.rename = function() {

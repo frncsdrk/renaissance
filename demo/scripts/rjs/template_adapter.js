@@ -1,4 +1,6 @@
 // template adapter
+// Underscore's Template Module
+// Courtesy of underscorejs.org
 'use strict';
 
 define(
