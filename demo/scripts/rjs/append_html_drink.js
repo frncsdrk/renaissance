@@ -3,7 +3,7 @@
 
 define(
     [
-        'potion/drink'
+        'lib/drink'
     ]
     , function(registerDrink) {
         function appendHTML(html, node, cb) {
@@ -11,7 +11,9 @@ define(
             elem.innerHTML = html;
             var children = elem.children;
 
-            cb(children);
+            if (typeof cb === 'function') {
+                cb(children);
+            }
 
             for (var i = 0; i < children.length; i++) {
                 node.appendChild(children[i]);
