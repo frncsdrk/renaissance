@@ -18,7 +18,7 @@ define(
                 var pageId = e.target.getAttribute('data-pageref');
                 meta.spa.goto(pageId);
             };
-
+            
             this.after('init', function(component) {
                 component.on('click', self.href);
             });
