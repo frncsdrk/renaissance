@@ -5,14 +5,22 @@
         <title>potion demo</title>
     </head>
     <body>
-        <div id="content-wrapper">
-            <div id="content-container">
+        <div id="page1-container" class="content-wrapper spa-container">
+            <div class="content-container">
                 <button id="test-component-button">Click</button>
 
                 <button class="button2">button2 1</button>
                 <button class="button2">button2 2</button>
 
+                <a id="goto-page2" data-pageref="page2" href="#">Page 2</a>
+
                 <ul id="counter-list"></ul>
+            </div>
+        </div>
+
+        <div id="page2-container" class="spa-container">
+            <div class="content-container">
+                <a id="goto-page1" data-pageref="page1" href="#">Page 1</a>
             </div>
         </div>
 

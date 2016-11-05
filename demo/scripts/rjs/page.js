@@ -3,20 +3,31 @@
 
 define(
     [
-        'scripts/rjs/local_storage'
+        'lib/core'
+
+        , 'scripts/rjs/local_storage'
         , 'scripts/rjs/template_adapter'
+        , 'scripts/rjs/spa_adapter'
 
         , 'scripts/rjs/append_html_drink'
 
         , 'scripts/rjs/test'
         , 'scripts/rjs/counter_list'
+        , 'scripts/rjs/spa_anchor'
     ]
-    , function(localStorage, underscoreTemplates, appendHTML, testComponent, counterList) {
+    , function(potion, localStorage, underscoreTemplates, spaAdapter, appendHTML, testComponent, counterList, spaAnchor) {
         // console.log('in page');
         function init() {
             // adapters
             localStorage();
             underscoreTemplates();
+            spaAdapter();
+
+            // spa registration
+            var potionSpa = potion.adapters.spa;
+            potionSpa.register('page1', '#page1-container');
+            potionSpa.register('page2', '#page2-container');
+            potionSpa.goto('page1');
 
             // drinks
             appendHTML();
@@ -27,6 +38,9 @@ define(
             testComponent.attachTo('.button2');
 
             counterList.attachTo('#counter-list');
+
+            spaAnchor.attachTo('#goto-page1');
+            spaAnchor.attachTo('#goto-page2')
         }
 
         return init;
