@@ -1,4 +1,10 @@
 // single page app adapter
+/*
+ * fix for shortly appearing containers
+ * .spa-container {
+ *     display: none;
+ * }
+ */
 'use strict';
 
 define(
@@ -14,11 +20,21 @@ define(
 
             this.pages = {};
 
+            /**
+             * register a spa container
+             * @param {string} name
+             * @param {string} slctr
+             * @returns {*}
+             */
             this.register = function(name, slctr) {
                 this.pages[name] = slctr;
             };
-            // this.unregister = function() {};
 
+            /**
+             * go to given page
+             * @param {string} name
+             * @returns {*}
+             */
             this.goto = function(name) {
                 var spaContainers = potion.utils.getNodes(meta.containerSelector);
                 var container = potion.utils.getNodes(this.pages[name])[0];
