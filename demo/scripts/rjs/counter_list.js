@@ -3,16 +3,15 @@
 
 define(
     [
-        'lib/component'
-        , 'lib/template'
+        'lib/core'
         , 'text!templates/counterLi.html'
     ]
-    , function(defineComponent, potionTemplate, counterTmpl) {
+    , function(potion, counterTmpl) {
         function counterList() {
             var self = this;
 
             var meta = {
-                underscore: potionTemplate.underscore
+                underscore: potion.adapters.underscore
             };
             var template = meta.underscore.tmpl(counterTmpl);
 
@@ -36,6 +35,6 @@ define(
             });
         }
 
-        return defineComponent(counterList);
+        return potion.defineComponent(counterList);
     }
 );

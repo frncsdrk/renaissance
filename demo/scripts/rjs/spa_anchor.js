@@ -4,9 +4,8 @@
 define(
     [
         'lib/core'
-        , 'lib/component'
     ]
-    , function(potion, defineComponent) {
+    , function(potion) {
         function spaAnchor() {
             var self = this;
 
@@ -24,6 +23,6 @@ define(
             });
         }
 
-        return defineComponent(spaAnchor);
+        return potion.defineComponent(spaAnchor);
     }
 );

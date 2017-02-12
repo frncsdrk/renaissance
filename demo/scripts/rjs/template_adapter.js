@@ -5,10 +5,9 @@
 
 define(
     [
-        'lib/adapter'
-        , 'lib/template'
+        'lib/core'
     ]
-    , function(registerAdapter, potionTemplate) {
+    , function(potion) {
         function underscoreTemplateAdapter() {
 
             var _ = {};
@@ -146,7 +145,7 @@ define(
         };
 
         return function() {
-            registerAdapter(potionTemplate, 'underscore', underscoreTemplateAdapter);
+            potion.registerAdapter('underscore', underscoreTemplateAdapter);
         };
     }
 );
