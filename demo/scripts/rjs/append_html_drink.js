@@ -3,9 +3,9 @@
 
 define(
     [
-        'lib/drink'
+        'lib/core'
     ]
-    , function(registerDrink) {
+    , function(potion) {
         function appendHTML(html, node, cb) {
             var elem = document.createElement('div');
             elem.innerHTML = html;
@@ -21,7 +21,7 @@ define(
         }
 
         return function() {
-            registerDrink('appendHTML', appendHTML);
+            potion.registerDrink('appendHTML', appendHTML);
         };
     }
 );

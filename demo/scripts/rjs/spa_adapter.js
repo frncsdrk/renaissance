@@ -10,7 +10,6 @@
 define(
     [
         'lib/core'
-        , 'lib/adapter'
     ]
     , function(potion, registerAdapter) {
         function spaAdapter() {
@@ -49,7 +48,7 @@ define(
         }
 
         return function() {
-            registerAdapter(potion.adapters, 'spa', spaAdapter);
+            potion.registerAdapter('spa', spaAdapter);
         }
     }
 );

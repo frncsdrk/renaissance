@@ -3,15 +3,14 @@
 
 define(
     [
-        'lib/component'
-        , 'lib/storage'
+        'lib/core'
     ]
-    , function(defineComponent, storage) {
+    , function(potion) {
         function testComponent() {
             var self = this;
 
             var meta = {
-                storage: storage.localStorage
+                storage: potion.adapters.localStorage
             }
 
             this.add = function() {
@@ -46,6 +45,6 @@ define(
             // return this;
         }
 
-        return defineComponent(testComponent);
+        return potion.defineComponent(testComponent);
     }
 );
