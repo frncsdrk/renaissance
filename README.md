@@ -1,8 +1,12 @@
 # potion
-healing js components
+healing js components  
+
+Heavily inspired by [twitter's flightjs](https://flightjs.github.io/).  
+potion is little slimmer though.
 
 ## usage
-potion is based on requirejs. So it is recommended that you at least know the basics of it.
+potion is based on requirejs. So I recommend you to read a little about how to use it on their site.  
+Below are some simple examples on how to use potion. You can also have a look in the demo directory of that project to see a simple project outline.
 
 ### example application layout
 ```
@@ -28,7 +32,7 @@ potion is based on requirejs. So it is recommended that you at least know the ba
 
 define(
     [
-        'potion/component'
+        'potion'
     ]
     , function(defineComponent) {
         function component() {
@@ -47,13 +51,13 @@ define(
             });
         }
 
-        return defineComponent(component);
+        return potion.defineComponent(component);
     }
 );
 ```
 This is what a basic component looks like.
 
-### registering components
+### registering components, enabling adapters and drinks
 page
 ```javascript
 'use strict';
@@ -61,12 +65,40 @@ page
 define(
     [
         './component'
+        './adapter'
+        './drink'
     ]
-    , function(component) {
+    , function(component, adapter, drink) {
+        adapter();
+        drink();
+
         component.attachTo('body');
 
         component.attachTo('.container')
         component.attachTo('#certain-button');
+    }
+);
+```
+
+### example main
+```javascript
+requirejs.config({
+    baseUrl: './'
+    , paths: {
+        'text': 'bower_components/text/text'
+        , 'lib': '../lib'
+        , 'templates': 'templates'
+    }
+});
+
+require(
+    [
+        //
+    ]
+    , function() {
+        require(['scripts/rjs/page'], function(initialize) { // scripts
+            initialize();
+        });
     }
 );
 ```
