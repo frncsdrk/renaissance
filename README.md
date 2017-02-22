@@ -2,11 +2,11 @@
 healing js components  
 
 Heavily inspired by [twitter's flightjs](https://flightjs.github.io/).  
-potion is little slimmer though.
+potion is a little slimmer though.
 
 ## usage
 potion is based on requirejs. So I recommend you to read a little about how to use it on their site.  
-Below are some simple examples on how to use potion. You can also have a look in the demo directory of that project to see a simple project outline.
+Below are some simple examples on how to use potion. You can also have a look in the demo directory of this project to see a simple project outline.
 
 ### example application layout
 ```
