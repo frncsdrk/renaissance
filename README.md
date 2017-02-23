@@ -1,11 +1,11 @@
 # renaissance
-healing js components  
+renovating js components  
 
 Heavily inspired by [twitter's flightjs](https://flightjs.github.io/).  
 renaissance is a little slimmer though.
 
 ## usage
-renaissance is based on requirejs. So I recommend you to read a little about how to use it on their site.  
+renaissance is based on requirejs. So I recommend you to read a little about how to use it on [their site](http://requirejs.org/).  
 Below are some simple examples on how to use renaissance. You can also have a look in the demo directory of this project to see a simple project outline.
 
 ### example application layout
