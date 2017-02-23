@@ -5,12 +5,12 @@ define(
     [
         'lib/core'
     ]
-    , function(potion) {
+    , function(renaissance) {
         function spaAnchor() {
             var self = this;
 
             var meta = {
-                spa: potion.adapters.spa
+                spa: renaissance.adapters.spa
             };
 
             this.href = function(e) {
@@ -23,6 +23,6 @@ define(
             });
         }
 
-        return potion.defineComponent(spaAnchor);
+        return renaissance.defineComponent(spaAnchor);
     }
 );

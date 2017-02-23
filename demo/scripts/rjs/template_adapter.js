@@ -7,7 +7,7 @@ define(
     [
         'lib/core'
     ]
-    , function(potion) {
+    , function(renaissance) {
         function underscoreTemplateAdapter() {
 
             var _ = {};
@@ -145,7 +145,7 @@ define(
         };
 
         return function() {
-            potion.registerAdapter('underscore', underscoreTemplateAdapter);
+            renaissance.registerAdapter('underscore', underscoreTemplateAdapter);
         };
     }
 );

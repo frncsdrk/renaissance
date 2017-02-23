@@ -5,7 +5,7 @@ define(
     [
         'lib/core'
     ]
-    , function(potion) {
+    , function(renaissance) {
         function appendHTML(html, node, cb) {
             var elem = document.createElement('div');
             elem.innerHTML = html;
@@ -21,7 +21,7 @@ define(
         }
 
         return function() {
-            potion.registerDrink('appendHTML', appendHTML);
+            renaissance.registerDrink('appendHTML', appendHTML);
         };
     }
 );

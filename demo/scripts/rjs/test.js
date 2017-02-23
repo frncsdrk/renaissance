@@ -5,12 +5,12 @@ define(
     [
         'lib/core'
     ]
-    , function(potion) {
+    , function(renaissance) {
         function testComponent() {
             var self = this;
 
             var meta = {
-                storage: potion.adapters.localStorage
+                storage: renaissance.adapters.localStorage
             }
 
             this.add = function() {
@@ -45,6 +45,6 @@ define(
             // return this;
         }
 
-        return potion.defineComponent(testComponent);
+        return renaissance.defineComponent(testComponent);
     }
 );

@@ -6,12 +6,12 @@ define(
         'lib/core'
         , 'text!templates/counterLi.html'
     ]
-    , function(potion, counterTmpl) {
+    , function(renaissance, counterTmpl) {
         function counterList() {
             var self = this;
 
             var meta = {
-                underscore: potion.adapters.underscore
+                underscore: renaissance.adapters.underscore
             };
             var template = meta.underscore.tmpl(counterTmpl);
 
@@ -35,6 +35,6 @@ define(
             });
         }
 
-        return potion.defineComponent(counterList);
+        return renaissance.defineComponent(counterList);
     }
 );
