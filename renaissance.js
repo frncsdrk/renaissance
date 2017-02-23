@@ -34,7 +34,7 @@ define(
             component.afterMap['init'](component);
         };
         /**
-         * register a Adapter
+         * register an Adapter
          * @param {object} renaissance extendable
          * @param {string} adapter name
          * @param {object} adapter constructor

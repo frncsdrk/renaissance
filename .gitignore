@@ -1,5 +1,5 @@
 .idea/*
 node_modules/*
-demo/bower_components/*
+demo/*
 test/*
 artifacts/*
