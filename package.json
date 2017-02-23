@@ -1,5 +1,5 @@
 {
-  "name": "potion",
+  "name": "renaissance",
   "version": "0.1.0",
   "description": "js components",
   "main": "index.js",
@@ -21,5 +21,8 @@
     "url": "https://github.com/frncsdrk/potion/issues"
   },
   "homepage": "https://github.com/frncsdrk/potion#readme",
-  "dependencies": {}
+  "dependencies": {
+    "requirejs": "^2.3.3",
+    "requirejs-text": "^2.0.15"
+  }
 }

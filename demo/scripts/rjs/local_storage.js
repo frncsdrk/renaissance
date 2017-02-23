@@ -5,7 +5,7 @@ define(
     [
         'lib/core'
     ],
-    function(potion) {
+    function(renaissance) {
         function localStorageAdapter() {
             this.save = function(key, value) {
                 localStorage.setItem(key, value);
@@ -31,7 +31,7 @@ define(
         }
 
         return function() {
-            potion.registerAdapter('localStorage', localStorageAdapter);
+            renaissance.registerAdapter('localStorage', localStorageAdapter);
         };
     }
 );

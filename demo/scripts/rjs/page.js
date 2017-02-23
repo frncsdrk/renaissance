@@ -15,7 +15,7 @@ define(
         , 'scripts/rjs/counter_list'
         , 'scripts/rjs/spa_anchor'
     ]
-    , function(potion, localStorage, underscoreTemplates, spaAdapter, appendHTML, testComponent, counterList, spaAnchor) {
+    , function(renaissance, localStorage, underscoreTemplates, spaAdapter, appendHTML, testComponent, counterList, spaAnchor) {
         // console.log('in page');
         function init() {
             // adapters
@@ -24,10 +24,10 @@ define(
             spaAdapter();
 
             // spa registration
-            var potionSpa = potion.adapters.spa;
-            potionSpa.register('page1', '#page1-container');
-            potionSpa.register('page2', '#page2-container');
-            potionSpa.goto('page1');
+            var renaissanceSpa = renaissance.adapters.spa;
+            renaissanceSpa.register('page1', '#page1-container');
+            renaissanceSpa.register('page2', '#page2-container');
+            renaissanceSpa.goto('page1');
 
             // drinks
             appendHTML();

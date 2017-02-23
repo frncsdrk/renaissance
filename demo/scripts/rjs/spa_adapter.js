@@ -11,7 +11,7 @@ define(
     [
         'lib/core'
     ]
-    , function(potion, registerAdapter) {
+    , function(renaissance, registerAdapter) {
         function spaAdapter() {
             var meta = {
                 'containerSelector': '.spa-container'
@@ -35,8 +35,8 @@ define(
              * @returns {*}
              */
             this.goto = function(name) {
-                var spaContainers = potion.utils.getNodes(meta.containerSelector);
-                var container = potion.utils.getNodes(this.pages[name])[0];
+                var spaContainers = renaissance.utils.getNodes(meta.containerSelector);
+                var container = renaissance.utils.getNodes(this.pages[name])[0];
 
                 for (var i = 0; i < spaContainers.length; i++) {
                     var cont = spaContainers[i];
@@ -48,7 +48,7 @@ define(
         }
 
         return function() {
-            potion.registerAdapter('spa', spaAdapter);
+            renaissance.registerAdapter('spa', spaAdapter);
         }
     }
 );

@@ -1,12 +1,12 @@
-# potion
+# renaissance
 healing js components  
 
 Heavily inspired by [twitter's flightjs](https://flightjs.github.io/).  
-potion is a little slimmer though.
+renaissance is a little slimmer though.
 
 ## usage
-potion is based on requirejs. So I recommend you to read a little about how to use it on their site.  
-Below are some simple examples on how to use potion. You can also have a look in the demo directory of this project to see a simple project outline.
+renaissance is based on requirejs. So I recommend you to read a little about how to use it on their site.  
+Below are some simple examples on how to use renaissance. You can also have a look in the demo directory of this project to see a simple project outline.
 
 ### example application layout
 ```
@@ -32,7 +32,7 @@ Below are some simple examples on how to use potion. You can also have a look in
 
 define(
     [
-        'potion'
+        'renaissance'
     ]
     , function(defineComponent) {
         function component() {
@@ -51,7 +51,7 @@ define(
             });
         }
 
-        return potion.defineComponent(component);
+        return renaissance.defineComponent(component);
     }
 );
 ```
