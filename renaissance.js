@@ -65,6 +65,21 @@ define(
 
             return true;
         };
+        /**
+         * register a plugin
+         * @param {function} plugin
+         * @return {boolean} registered
+         */
+        renaissance.registerPlugin = function(name, plugin) {
+            if (typeof renaissance[name] !== 'undefined') {
+                return false;
+            }
+
+            // register plugin function on renaissance prototype
+            renaissance[name] = plugin;
+
+            return false;
+        };
 
         // private
         // wrapper for bare component definition
