@@ -25,8 +25,8 @@ define(
 
             // run specs for components
             var specResult = localStorageSpec(renaissance.adapters.localStorage);
-            console.log(specResult);
-            htmlReporter([specResult]);
+            // console.log(specResult);
+            renaissance.adapters.htmlReporter.report([specResult]);
         }
 
         return init;

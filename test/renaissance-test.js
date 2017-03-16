@@ -12,7 +12,9 @@ define(
          */
         function suite(name, cb) {
             var self = this;
-            self.result = [];
+            var result = {};
+            result.name = name;
+            result.tests = [];
 
             /**
              * test
@@ -70,14 +72,14 @@ define(
                         break;
                 }
 
-                self.result.push(testResult);
+                result.tests.push(testResult);
                 // return testResult;
                 return true;
             }
 
             cb(test);
 
-            return this.result;
+            return result;
         }
 
         return function() {
