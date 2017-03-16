@@ -23,6 +23,45 @@ define(
                     , 'equal'
                     , true
                 );
+
+                test(
+                    'localStorage.update'
+                    , function() {
+                        return ls.update('key', 'value');
+                    }
+                    , 'equal'
+                    , true
+                );
+
+                test(
+                    'localStorage.update non existent item'
+                    , function() {
+                        return ls.update('not', 'value');
+                    }
+                    , 'equal'
+                    , false
+                );
+
+                test(
+                    'localStorage.remove'
+                    , function() {
+                        return ls.remove('key');
+                    }
+                    , 'equal'
+                    , true
+                );
+
+                test(
+                    'localStorage.clear'
+                    , function() {
+                        return ls.clear();
+                    }
+                    , 'equal'
+                    , true
+                );
+
+                // prevent next test from failing because of unprepared test environment
+                localStorage.clear();
             });
         }
 
