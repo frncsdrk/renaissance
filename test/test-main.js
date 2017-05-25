@@ -4,7 +4,9 @@
 requirejs.config({
     baseUrl: './'
     , paths: {
-        'renaissance': '../renaissance'
+        'node_modules': '../node_modules'
+        
+        , 'renaissance': '../renaissance'
         , 'mock': 'mock'
         , 'spec': 'spec'
     }

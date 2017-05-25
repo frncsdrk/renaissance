@@ -4,8 +4,8 @@
 define(
     [
         'renaissance'
-        , 'renaissance-test'
-        , 'renaissance-test-html-reporter'
+        , 'node_modules/renaissance-test/renaissance-test'
+        , 'node_modules/renaissance-test-html-reporter/renaissance-test-html-reporter'
 
         // components to test
         , '../demo/scripts/rjs/local_storage'
