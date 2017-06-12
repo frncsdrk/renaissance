@@ -8,11 +8,12 @@ define(
         , 'node_modules/renaissance-test-html-reporter/renaissance-test-html-reporter'
 
         // components to test
-        , '../demo/scripts/rjs/local_storage'
+        , 'node_modules/renaissance-local-storage/localStorage'
         // specs
         , 'specs/localStorage.spec'
+        , 'specs/renaissance.spec'
     ]
-    , function(renaissance, test, htmlReporter, localStorage, localStorageSpec) {
+    , function(renaissance, test, htmlReporter, localStorage, localStorageSpec, renaissanceSpec) {
         function init() {
             // console.log('initialize');
 
@@ -26,7 +27,8 @@ define(
             // run specs for components
             var specResult = localStorageSpec(renaissance.adapters.localStorage);
             // console.log(specResult);
-            renaissance.adapters.htmlReporter.report([specResult]);
+            var renaissanceSpecResult = renaissanceSpec(renaissance);
+            renaissance.adapters.htmlReporter.report([specResult, renaissanceSpecResult]);
         }
 
         return init;
