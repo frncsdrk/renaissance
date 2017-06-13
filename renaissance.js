@@ -27,11 +27,22 @@ define(
         renaissance.template = {};
         renaissance.drinks = {};
         // private / only available for adapter and drink creators
+        /**
+         * register component internally
+         * @param {object} component
+         * @param {object} node
+         * @returns {object} component
+         */
         renaissance.registerComponent = function(component, node) {
             // set node
             component.setNode(node);
+            console.log(component);
             // event handlers
-            component.afterMap['init'](component);
+            if (typeof component.afterMap['init'] === 'function') {
+                component.afterMap['init'](component);
+            }
+
+            return component;
         };
         /**
          * register an Adapter
@@ -87,11 +98,13 @@ define(
             return new renaissance.Attachable(Component);
         };
         renaissance.Component = function() {
-            this.beforeMap = {};
-            this.afterMap = {};
+            // this.beforeMap = {};
+            // this.afterMap = {};
 
             return this;
         };
+        renaissance.Component.prototype.beforeMap = {};
+        renaissance.Component.prototype.afterMap = {};
         renaissance.Component.prototype.setNode = function(node) {
             this.node = node;
         }
@@ -113,12 +126,14 @@ define(
             var ev = new CustomEvent(evName, { detail: evData });
             document.dispatchEvent(ev);
         };
+        // register before event
         renaissance.Component.prototype.before = function(ev, cb) {
-            if (typeof this.beforeMap !== 'object') this.beforeMap = {};
+            // if (typeof this.beforeMap !== 'object') this.beforeMap = {};
             this.beforeMap[ev] = cb;
         };
+        // register after event
         renaissance.Component.prototype.after = function(ev, cb) {
-            if (typeof this.afterMap !== 'object') this.afterMap = {};
+            // if (typeof this.afterMap !== 'object') this.afterMap = {};
             this.afterMap[ev] = cb;
         };
         renaissance.Attachable = function(Blueprint) {
@@ -127,12 +142,21 @@ define(
 
             return this;
         };
+        /**
+         * attach component to selected elements
+         * @param {string} selector
+         * @returns {array} components
+         */
         renaissance.Attachable.prototype.attachTo = function(selector) {
+            var componentArr = [];
             var nodes = renaissance.utils.getNodes(selector);
             // register a component for every found node
             for (var i = 0; i < nodes.length; i++) {
-                renaissance.registerComponent(new this.Blueprint(), nodes[i]);
+                var component = renaissance.registerComponent(new this.Blueprint(), nodes[i]);
+                componentArr.push(component);
             }
+
+            return componentArr;
         };
 
         // logger public
@@ -143,6 +167,12 @@ define(
         renaissance.utils = {};
         // get nodes by selector
         renaissance.utils.getNodes = function(slctr) {
+            // try to use query selector all on slctr with attribute
+            if (slctr.match(/^.+\[.+\]$/)) {
+                return document.querySelectorAll(slctr);
+            }
+
+            // default - use standard selector statements
             // node
             if (typeof slctr === 'object') {
                 return [slctr];
