@@ -10,8 +10,8 @@ define(
         // components to test
         , 'node_modules/renaissance-local-storage/localStorage'
         // specs
-        , 'specs/localStorage.spec'
-        , 'specs/renaissance.spec'
+        , 'spec/localStorage.spec'
+        , 'spec/renaissance.spec'
     ]
     , function(renaissance, test, htmlReporter, localStorage, localStorageSpec, renaissanceSpec) {
         function init() {
