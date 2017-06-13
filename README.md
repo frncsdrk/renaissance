@@ -1,12 +1,11 @@
 # renaissance
 renovating js components  
 
-Heavily inspired by [twitter's flightjs](https://flightjs.github.io/).  
-renaissance is a little slimmer though.
+Heavily inspired by [twitter's flightjs](https://flightjs.github.io/) but lighter.  
 
 ## usage
 renaissance is based on requirejs. So I recommend you to read a little about how to use it on [their site](http://requirejs.org/).  
-Below are some simple examples on how to use renaissance. You can also have a look in the demo directory of this project to see a simple project outline.
+Below are some simple examples on how to use renaissance. You can also have a look in the [demo repo](https://github.com/frncsdrk/renaissance-demo/) of this project to see a simple project outline.
 
 ### example application layout
 ```
@@ -34,7 +33,7 @@ define(
     [
         'renaissance'
     ]
-    , function(defineComponent) {
+    , function(renaissance) {
         function component() {
             var self = this;
 
@@ -46,8 +45,8 @@ define(
             // this.do = function() {};
 
             this.after('init', function(component) {
-                // component.on();
-                // component.expose()
+                component.on('click', function(e) {}); // add event listener for standard events that are triggered on HTML node directly
+                component.expose('custom', function(e, data) {}); // expose custom events that will be triggered by other components
             });
         }
 
@@ -69,13 +68,18 @@ define(
         './drink'
     ]
     , function(component, adapter, drink) {
-        adapter();
-        drink();
+        function init() {
+            adapter();
+            drink();
 
-        component.attachTo('body');
+            component.attachTo('body');
 
-        component.attachTo('.container')
-        component.attachTo('#certain-button');
+            component.attachTo('.container')
+            component.attachTo('#certain-button');
+            component.attachTo('div[class=example]');
+        }
+
+        return init;
     }
 );
 ```
@@ -93,12 +97,10 @@ requirejs.config({
 
 require(
     [
-        //
+        'page'
     ]
-    , function() {
-        require(['scripts/rjs/page'], function(initialize) { // scripts
-            initialize();
-        });
+    , function(initialize) {
+        initialize();
     }
 );
 ```
