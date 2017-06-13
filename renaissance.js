@@ -1,16 +1,4 @@
 // renaissance core
-
-/*
- * function component() {
- *    this.args = {};
- *    
- *    this.add = function() {};
- *    this.rm = function() {};
- *    
- *    this.after('initialize', function() {});
- * }
- */
-
 'use strict';
 
 define(
@@ -93,10 +81,18 @@ define(
         };
 
         // private
-        // wrapper for bare component definition
+        /** wrapper for bare component definition
+         * @param {object} component
+         * @returns {object} component
+         */
         renaissance.defineComponent = function(Component) {
             return new renaissance.Attachable(Component);
         };
+        /**
+         * component
+         * @constructor
+         * @returns {object} this
+         */
         renaissance.Component = function() {
             // this.beforeMap = {};
             // this.afterMap = {};
@@ -105,12 +101,30 @@ define(
         };
         renaissance.Component.prototype.beforeMap = {};
         renaissance.Component.prototype.afterMap = {};
+        /**
+         * set node
+         * @param {object} node
+         * @returns {*}
+         */
         renaissance.Component.prototype.setNode = function(node) {
             this.node = node;
         }
+        /**
+         * add an event handler on component
+         * @param {string} event
+         * @param {function} callback
+         * @returns {*}
+         */
         renaissance.Component.prototype.on = function(nodeEv, cb) {
             this.node.addEventListener(nodeEv, cb);
         };
+        /**
+         * expose an event to other components and make it triggerable
+         * (for custom events)
+         * @param {string} event
+         * @param {function} callback
+         * @returns {*}
+         */
         renaissance.Component.prototype.expose = function(evName, cb) {
             document.addEventListener(evName, function(e) { cb(e, e.detail); });
         };
@@ -126,16 +140,30 @@ define(
             var ev = new CustomEvent(evName, { detail: evData });
             document.dispatchEvent(ev);
         };
-        // register before event
+        /**
+         * register before event
+         * @param {string} event
+         * @param {function} callback
+         */
         renaissance.Component.prototype.before = function(ev, cb) {
             // if (typeof this.beforeMap !== 'object') this.beforeMap = {};
             this.beforeMap[ev] = cb;
         };
-        // register after event
+        /**
+         *register after event
+         * @param {string} event
+         * @param {function} callback
+         */
         renaissance.Component.prototype.after = function(ev, cb) {
             // if (typeof this.afterMap !== 'object') this.afterMap = {};
             this.afterMap[ev] = cb;
         };
+        /**
+         * Attachable class
+         * @constructor
+         * @param {object} Blueprint
+         * @returns {object} this
+         */
         renaissance.Attachable = function(Blueprint) {
             this.Blueprint = Blueprint;
             this.Blueprint.prototype = renaissance.Component.prototype;
@@ -165,7 +193,11 @@ define(
 
         // utils private
         renaissance.utils = {};
-        // get nodes by selector
+        /**
+         * get nodes by selector
+         * @param {string} selector
+         * @returns {object} NodeList
+         */
         renaissance.utils.getNodes = function(slctr) {
             // try to use query selector all on slctr with attribute
             if (slctr.match(/^.+\[.+\]$/)) {
