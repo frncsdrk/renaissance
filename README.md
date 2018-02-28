@@ -1,5 +1,7 @@
 # renaissance
-renovating js components  
+renovating js components 
+
+> renaissance needs a renaissance. Doing that when I've got time. 
 
 Heavily inspired by [twitter's flightjs](https://flightjs.github.io/) but lighter.  
 

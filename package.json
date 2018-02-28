@@ -2,30 +2,28 @@
   "name": "renaissance",
   "version": "0.3.1",
   "description": "renovating js components",
-  "main": "index.js",
+  "main": "renaissance.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/frncsdrk/potion.git"
+    "url": "git+https://github.com/frncsdrk/renaissance.git"
   },
   "keywords": [
-    "potion",
+    "renaissance",
     "component",
     "js"
   ],
   "author": "frncsdrk",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/frncsdrk/potion/issues"
+    "url": "https://github.com/frncsdrk/renaissance/issues"
   },
-  "homepage": "https://github.com/frncsdrk/potion#readme",
+  "homepage": "https://github.com/frncsdrk/renaissance#readme",
   "dependencies": {
     "renaissance-append-html": "^0.1.1",
-    "renaissance-local-storage": "^0.1.1",
-    "requirejs": "^2.3.3",
-    "requirejs-text": "^2.0.15"
+    "renaissance-local-storage": "^0.1.1"
   },
   "devDependencies": {
     "renaissance-test": "^0.1.0",
