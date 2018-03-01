@@ -1,7 +1,7 @@
 // renaissance core
 'use strict';
 
-var renaissance = {};
+let renaissance = {};
 
 // private
 // registry filled and emptied when attaching and unattaching components to DOM
@@ -31,16 +31,15 @@ renaissance.registerComponent = function(component, node) {
 };
 /**
  * register an Adapter
- * @param {object} renaissance extendable
- * @param {string} adapter name
- * @param {object} adapter constructor
+ * @param {string} adapterName
+ * @param {object} adapterConstructor
  */
-renaissance.registerAdapter = function(name, Adapter) {
-    var adapter = new Adapter();
+renaissance.registerAdapter = function(adapterName, adapterConstructor) {
+    let adapter = new Adapter();
 
     renaissance.adapters[name] = {};
 
-    for (var fn in adapter) {
+    for (let fn in adapter) {
         renaissance.adapters[name][fn] = adapter[fn];
     }
 };
@@ -50,23 +49,25 @@ renaissance.registerAdapter = function(name, Adapter) {
  * @param {function} callback
  * @returns {boolean}
  */
-renaissance.registerDrink = function(name, cb) {
+renaissance.registerDrink = function(name, callback) {
     // avoid overwriting other functionality
     if (typeof renaissance.Component.prototype[name] !== 'undefined') {
         return false;
     }
 
     // register drink on component prototype
-    renaissance.Component.prototype[name] = cb;
+    renaissance.Component.prototype[name] = callback;
 
     return true;
 };
 /**
  * register a plugin
+ * @param {string} name
  * @param {function} plugin
  * @return {boolean} registered
  */
 renaissance.registerPlugin = function(name, plugin) {
+    // if name already defined on prototype, omit registration
     if (typeof renaissance[name] !== 'undefined') {
         return false;
     }
@@ -79,7 +80,7 @@ renaissance.registerPlugin = function(name, plugin) {
 
 // private
 /** wrapper for bare component definition
- * @param {object} component
+ * @param {object} Component
  * @returns {object} component
  */
 renaissance.defineComponent = function(Component) {
@@ -108,33 +109,33 @@ renaissance.Component.prototype.setNode = function(node) {
 };
 /**
  * add an event handler on component
- * @param {string} event
+ * @param {string} nodeEvent
  * @param {function} callback
  * @returns {*}
  */
-renaissance.Component.prototype.on = function(nodeEv, cb) {
-    this.node.addEventListener(nodeEv, cb);
+renaissance.Component.prototype.on = function(nodeEvent, callback) {
+    this.node.addEventListener(nodeEvent, callback);
 };
 /**
  * expose an event to other components and make it triggerable
  * (for custom events)
- * @param {string} event
+ * @param {string} eventName
  * @param {function} callback
  * @returns {*}
  */
-renaissance.Component.prototype.expose = function(evName, cb) {
+renaissance.Component.prototype.expose = function(eventName, callback) {
     document.addEventListener(evName, function(e) { cb(e, e.detail); });
 };
 // trigger exposed events
 /**
  * trigger exposed event
- * @param {string} event name
- * @param {object} event data
+ * @param {string} eventName
+ * @param {object} eventData
  * @returns {*}
  */
-renaissance.Component.prototype.trigger = function(evName, evData) {
+renaissance.Component.prototype.trigger = function(eventName, eventData) {
     // console.log('evData:', evData);
-    var ev = new CustomEvent(evName, { detail: evData });
+    let ev = new CustomEvent(eventName, { detail: eventData });
     document.dispatchEvent(ev);
 };
 /**
@@ -142,18 +143,18 @@ renaissance.Component.prototype.trigger = function(evName, evData) {
  * @param {string} event
  * @param {function} callback
  */
-renaissance.Component.prototype.before = function(ev, cb) {
+renaissance.Component.prototype.before = function(event, callback) {
     // if (typeof this.beforeMap !== 'object') this.beforeMap = {};
-    this.beforeMap[ev] = cb;
+    this.beforeMap[event] = callback;
 };
 /**
  *register after event
  * @param {string} event
  * @param {function} callback
  */
-renaissance.Component.prototype.after = function(ev, cb) {
+renaissance.Component.prototype.after = function(event, callback) {
     // if (typeof this.afterMap !== 'object') this.afterMap = {};
-    this.afterMap[ev] = cb;
+    this.afterMap[event] = callback;
 };
 /**
  * Attachable class
@@ -173,11 +174,11 @@ renaissance.Attachable = function(Blueprint) {
  * @returns {array} components
  */
 renaissance.Attachable.prototype.attachTo = function(selector) {
-    var componentArr = [];
-    var nodes = renaissance.utils.getNodes(selector);
+    let componentArr = [];
+    let nodes = renaissance.utils.getNodes(selector);
     // register a component for every found node
-    for (var i = 0; i < nodes.length; i++) {
-        var component = renaissance.registerComponent(new this.Blueprint(), nodes[i]);
+    for (let i = 0; i < nodes.length; i++) {
+        let component = renaissance.registerComponent(new this.Blueprint(), nodes[i]);
         componentArr.push(component);
     }
 
@@ -195,30 +196,30 @@ renaissance.utils = {};
  * @param {string} selector
  * @returns {object} NodeList
  */
-renaissance.utils.getNodes = function(slctr) {
+renaissance.utils.getNodes = function(selector) {
     // try to use query selector all on slctr with attribute
-    if (slctr.match(/^.+\[.+\]$/)) {
+    if (selector.match(/^.+\[.+\]$/)) {
         return document.querySelectorAll(slctr);
     }
 
     // default - use standard selector statements
     // node
-    if (typeof slctr === 'object') {
-        return [slctr];
+    if (typeof selector === 'object') {
+        return [selector];
     }
     // id
-    else if (slctr.charAt(0) === '#') {
-        slctr = slctr.substring(1);
-        return [document.getElementById(slctr)];
+    else if (selector.charAt(0) === '#') {
+        selector = selector.substring(1);
+        return [document.getElementById(selector)];
     }
     // class
-    else if (slctr.charAt(0) === '.') {
-        slctr = slctr.substring(1);
-        return document.getElementsByClassName(slctr);
+    else if (selector.charAt(0) === '.') {
+        selector = selector.substring(1);
+        return document.getElementsByClassName(selector);
     }
     // tag
-    else if (typeof slctr === 'string') {
-        return document.getElementsByTagName(slctr);
+    else if (typeof selector === 'string') {
+        return document.getElementsByTagName(selector);
     }
 };
 
