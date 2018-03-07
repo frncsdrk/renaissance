@@ -4,6 +4,9 @@
   "description": "renovating js components",
   "main": "renaissance.js",
   "scripts": {
+    "build": "npm run browserify && npm run uglify",
+    "browserify": "browserify -t babelify renaissance.js -o dist/renaissance.js",
+    "uglify": "uglifyjs dist/renaissance.js -o dist/renaissance.min.js --compress --mangle --source-map",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -22,11 +25,17 @@
   },
   "homepage": "https://github.com/frncsdrk/renaissance#readme",
   "dependencies": {
+    "babel-preset-es2017": "^6.24.1",
     "renaissance-append-html": "^0.1.1",
     "renaissance-local-storage": "^0.1.1"
   },
   "devDependencies": {
+    "babel-core": "^6.26.0",
+    "babel-preset-env": "^1.6.1",
+    "babelify": "^8.0.0",
+    "browserify": "^16.1.1",
     "renaissance-test": "^0.1.0",
-    "renaissance-test-html-reporter": "^0.1.2"
+    "renaissance-test-html-reporter": "^0.1.2",
+    "uglify-js": "^3.3.13"
   }
 }
