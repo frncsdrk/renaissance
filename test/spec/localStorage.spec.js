@@ -1,4 +1,5 @@
 // local storage spec
+/*
 define(
     [
         'renaissance'
@@ -68,3 +69,4 @@ define(
         return spec;
     }
 );
+*/

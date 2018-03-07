@@ -1,4 +1,5 @@
 // renaissance spec
+/*
 define(
 	[
 		'renaissance'
@@ -55,3 +56,4 @@ define(
 		return spec;
 	}
 );
+*/
