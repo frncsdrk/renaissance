@@ -1,6 +1,7 @@
 // main
 'use strict';
 
+/*
 requirejs.config({
     baseUrl: './'
     , paths: {
@@ -21,3 +22,10 @@ require(
         initialize();
     }
 );
+*/
+
+import renaissance from './../renaissance'
+import suite from './suite'
+import renaissanceSpec from './spec/renaissance.spec'
+
+suite()
