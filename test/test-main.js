@@ -24,7 +24,7 @@ require(
 );
 */
 
-import renaissance from './../renaissance'
+import renaissance from '../src/renaissance'
 import suite from './suite'
 import renaissanceSpec from './spec/renaissance.spec'
 

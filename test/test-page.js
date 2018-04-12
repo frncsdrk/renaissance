@@ -3,7 +3,7 @@
 
 define(
     [
-        'renaissance'
+        'src/renaissance'
         , 'node_modules/renaissance-test/renaissance-test'
         , 'node_modules/renaissance-test-html-reporter/renaissance-test-html-reporter'
 
