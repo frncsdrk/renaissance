@@ -1,5 +1,5 @@
 .idea/*
 node_modules/*
 artifacts/*
-index.html
 dist
+*.log
