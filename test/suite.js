@@ -1,5 +1,5 @@
 // suite
-import renaissance from './../renaissance'
+import renaissance from '../src/renaissance'
 
 let Suite = () => {
     this.result = {}
