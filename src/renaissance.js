@@ -2,8 +2,7 @@
 'use strict';
 import 'babel-core/register'
 // import 'babel-polyfill'
-
-let renaissance = {};
+import Utils from './plugins/Utils'
 
 class Component {
     /**
@@ -79,139 +78,97 @@ class Component {
     }
 }
 
-// private
-// registry filled and emptied when attaching and unattaching components to DOM
-// renaissance.registry = {};
-// renaissance.components = {};
-renaissance.adapters = {};
-renaissance.storage = {};
-renaissance.template = {};
-renaissance.drinks = {};
-// private / only available for adapter and drink creators
-/**
- * register component internally
- * @param {object} component
- * @param {object} node
- * @returns {object} component
- */
-renaissance.registerComponent = function(component, node) {
-    // set node
-    component.setNode(node);
-    // event handlers
-    if (typeof component.afterMap['init'] === 'function') {
-        component.afterMap['init'](component);
-    }
+class Renaissance {
+    constructor() {
+        // private
+        // registry filled and emptied when attaching and unattaching components to DOM
+        // renaissance.registry = {};
+        // renaissance.components = {};
+        this.adapters = {};
+        this.storage = {};
+        this.template = {};
+        this.drinks = {};
 
-    return component;
-};
-/**
- * register an Adapter
- * @param {string} name
- * @param {object} Adapter
- */
-renaissance.registerAdapter = function(name, Adapter) {
-    let adapter = new Adapter();
-    renaissance.adapters[name] = adapter;
-    return adapter;
-};
-/**
- * register a drink, same as a mixin
- * @param {string} name
- * @param {function} callback
- * @returns {boolean}
- */
-renaissance.registerDrink = function(name, callback) {
-    // avoid overwriting other functionality
-    if (typeof renaissance.Component.prototype[name] !== 'undefined') {
+        return this;
+    }
+    // private / only available for adapter and drink creators
+    /**
+     * register component internally
+     * @param {object} component
+     * @param {object} node
+     * @returns {object} component
+     */
+    registerComponent(component, node) {
+        // set node
+        component.setNode(node);
+        // event handlers
+        if (typeof component.afterMap['init'] === 'function') {
+            component.afterMap['init'](component);
+        }
+
+        return component;
+    };
+    /**
+     * register an Adapter
+     * @param {string} name
+     * @param {object} Adapter
+     */
+    registerAdapter(name, Adapter) {
+        let adapter = new Adapter();
+        this.adapters[name] = adapter;
+        return adapter;
+    };
+    /**
+     * register a drink, same as a mixin
+     * @param {string} name
+     * @param {function} callback
+     * @returns {boolean}
+     */
+    /*
+    renaissance.registerDrink = function(name, callback) {
+        // avoid overwriting other functionality
+        if (typeof renaissance.Component.prototype[name] !== 'undefined') {
+            return false;
+        }
+
+        // register drink on component prototype
+        renaissance.Component.prototype[name] = callback;
+
+        return true;
+    };
+    */
+    /**
+     * register a plugin
+     * @param {string} name
+     * @param {function} Plugin
+     * @return {boolean} registered
+     */
+    registerPlugin(name, Plugin) {
+        // if name already defined on prototype, omit registration
+        if (typeof this[name] !== 'undefined') {
+            return false;
+        }
+
+        // register plugin function on renaissance prototype
+        this[name] = new Plugin(this);
+
         return false;
-    }
+    };
+}
 
-    // register drink on component prototype
-    renaissance.Component.prototype[name] = callback;
-
-    return true;
-};
-/**
- * register a plugin
- * @param {string} name
- * @param {function} plugin
- * @return {boolean} registered
- */
-renaissance.registerPlugin = function(name, plugin) {
-    // if name already defined on prototype, omit registration
-    if (typeof renaissance[name] !== 'undefined') {
-        return false;
-    }
-
-    // register plugin function on renaissance prototype
-    renaissance[name] = plugin;
-
-    return false;
-};
-
-// logger public
-
-// debug (depends on logger) public
-
-// utils private
-renaissance.utils = {};
-/**
- * get nodes by selector
- * @param {string} selector
- * @returns {object} NodeList
- */
-renaissance.utils.getNodes = function(selector) {
-    // try to use query selector all on slctr with attribute
-    if (selector.match(/^.+\[.+\]$/)) {
-        return document.querySelectorAll(slctr);
-    }
-
-    // default - use standard selector statements
-    // node
-    if (typeof selector === 'object') {
-        return [selector];
-    }
-    // id
-    else if (selector.charAt(0) === '#') {
-        selector = selector.substring(1);
-        return [document.getElementById(selector)];
-    }
-    // class
-    else if (selector.charAt(0) === '.') {
-        selector = selector.substring(1);
-        return document.getElementsByClassName(selector);
-    }
-    // tag
-    else if (typeof selector === 'string') {
-        return document.getElementsByTagName(selector);
-    }
-};
-/**
- * attach component to selected elements
- * @param {object} component
- * @param {string} selector
- * @returns {array} components
- */
-renaissance.utils.attachTo = function(component, selector) {
-    let componentArr = [];
-    let nodes = renaissance.utils.getNodes(selector);
-    // register a component for every found node
-    for (let i = 0; i < nodes.length; i++) {
-        renaissance.registerComponent(component, nodes[i]); // this.Blueprint
-        componentArr.push(component);
-    }
-
-    return componentArr;
-};
-
-const r = renaissance;
-const registerAdapter = renaissance.registerAdapter;
-const utils = renaissance.utils;
+const instance = new Renaissance();
+const renaissance = instance;
+const r = instance;
+// const registerAdapter = renaissance.registerAdapter;
+// const registerPlugin = renaissance.registerPlugin;
+renaissance.registerPlugin('utils', Utils);
+// const utils = renaissance.utils;
 
 export {
-    renaissance
+    Renaissance
+    , renaissance
     , r
     , Component
-    , registerAdapter
-    , utils
+    // , registerAdapter
+    // , utils
 }
