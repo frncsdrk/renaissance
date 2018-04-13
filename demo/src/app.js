@@ -1,5 +1,6 @@
 import 'babel-core/register'
 // babel polyfill only one time
-import renaissance from './../../dist/renaissance.min'
+// import 'babel-polyfill'
+import renaissance from './renaissance.min'
 
-console.log(renaissance.utils.getNodes('renaissance'))
+console.log(renaissance.utils.getNodes('#renaissance'))

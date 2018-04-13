@@ -4,16 +4,12 @@
   "description": "renovating js components",
   "main": "dist/renaissance.min.js",
   "scripts": {
-    "browserify": "browserify -t babelify src/renaissance.js -o dist/renaissance.js",
     "browserify:demo": "browserify -t babelify demo/src/app.js -o demo/dist/app.js",
-    "uglify": "uglifyjs dist/renaissance.js -o dist/renaissance.min.js --compress --mangle --source-map",
     "uglify:demo": "uglifyjs demo/dist/app.js -o demo/dist/app.min.js --compress --mangle --source-map",
     "babel": "babel -d dist/ src/",
-    "babel:demo": "babel -d demo/dist/ demo/src/",
     "minify": "minify dist/renaissance.js --out-file dist/renaissance.min.js",
-    "minify:demo": "minify demo/dist/app.js --out-file demo/dist/app.min.js",
-    "build": "npm run browserify && npm run uglify",
-    "build:demo": "npm run browserify:demo && npm run uglify:demo",
+    "build": "npm run babel && npm run minify",
+    "build:demo": "npm run build && cp dist/renaissance.min.js demo/src/ && npm run browserify:demo && npm run uglify:demo",
     "dev": "nodemon --ignore dist/ --ignore demo/ --ignore test/ dist/renaissance.min.js",
     "demo": "nodemon --ignore dist/ --ignore demo/dist/ demo/dist/app.min.js",
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -35,7 +31,6 @@
   "homepage": "https://github.com/frncsdrk/renaissance#readme",
   "dependencies": {
     "babel-core": "^6.26.0",
-    "babel-polyfill": "^6.26.0",
     "renaissance-append-html": "^0.1.1",
     "renaissance-local-storage": "^0.1.1"
   },
