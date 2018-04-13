@@ -33,17 +33,13 @@ renaissance.registerComponent = function(component, node) {
 };
 /**
  * register an Adapter
- * @param {string} adapterName
- * @param {object} adapterConstructor
+ * @param {string} name
+ * @param {object} Adapter
  */
-renaissance.registerAdapter = function(adapterName, adapterConstructor) {
+renaissance.registerAdapter = function(name, Adapter) {
     let adapter = new Adapter();
-
-    renaissance.adapters[name] = {};
-
-    for (let fn in adapter) {
-        renaissance.adapters[name][fn] = adapter[fn];
-    }
+    renaissance.adapters[name] = adapter;
+    return adapter;
 };
 /**
  * register a drink, same as a mixin
@@ -225,4 +221,15 @@ renaissance.utils.getNodes = function(selector) {
     }
 };
 
-export default renaissance
+const r = renaissance;
+const defineComponent = renaissance.defineComponent;
+const registerAdapter = renaissance.registerAdapter;
+const utils = renaissance.utils;
+
+export {
+    renaissance
+    , r
+    , defineComponent
+    , registerAdapter
+    , utils
+}
