@@ -1,4 +1,4 @@
-import { registerAdapter } from './../../../dist/renaissance.min'
+import { registerAdapter } from './../../../dist/renaissance'
 
 class LocalStorage {
     constructor() {
