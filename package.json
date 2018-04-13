@@ -10,8 +10,8 @@
     "minify": "minify dist/renaissance.js --out-file dist/renaissance.min.js",
     "build": "npm run babel",
     "build:demo": "npm run build && npm run browserify:demo && npm run uglify:demo",
-    "dev": "nodemon --ignore dist/ --ignore demo/ --ignore test/ dist/renaissance.min.js",
-    "demo": "nodemon --ignore dist/ --ignore demo/dist/ demo/dist/app.min.js",
+    "dev": "nodemon --ignore dist/ --ignore demo/ --ignore test/",
+    "demo": "nodemon --ignore dist/ --ignore demo/dist/",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
