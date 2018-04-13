@@ -1,4 +1,4 @@
-import { registerAdapter } from './../../../dist/renaissance'
+import { r } from './../../../dist/renaissance'
 
 class LocalStorage {
     constructor() {
@@ -28,4 +28,4 @@ class LocalStorage {
     };
 }
 
-export default registerAdapter('localStorage', LocalStorage)
+export default r.registerAdapter('localStorage', LocalStorage)
