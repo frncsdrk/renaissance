@@ -8,7 +8,7 @@
     "uglify:demo": "uglifyjs demo/dist/app.js -o demo/dist/app.min.js --compress --mangle --source-map",
     "babel": "babel -d dist/ src/",
     "minify": "minify dist/renaissance.js --out-file dist/renaissance.min.js",
-    "build": "npm run babel && npm run minify",
+    "build": "npm run babel",
     "build:demo": "npm run build && npm run browserify:demo && npm run uglify:demo",
     "dev": "nodemon --ignore dist/ --ignore demo/ --ignore test/ dist/renaissance.min.js",
     "demo": "nodemon --ignore dist/ --ignore demo/dist/ demo/dist/app.min.js",
