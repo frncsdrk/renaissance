@@ -87,7 +87,6 @@ class Renaissance {
         this.adapters = {};
         this.storage = {};
         this.template = {};
-        this.drinks = {};
 
         return this;
     }
@@ -119,24 +118,23 @@ class Renaissance {
         return adapter;
     };
     /**
-     * register a drink, same as a mixin
+     * register a mixin
      * @param {string} name
+     * @param {object} Component
      * @param {function} callback
      * @returns {boolean}
      */
-    /*
-    renaissance.registerDrink = function(name, callback) {
+    registerMixin(name, Component, callback) {
         // avoid overwriting other functionality
-        if (typeof renaissance.Component.prototype[name] !== 'undefined') {
+        if (typeof Component.prototype[name] !== 'undefined') {
             return false;
         }
 
         // register drink on component prototype
-        renaissance.Component.prototype[name] = callback;
+        Component.prototype[name] = callback;
 
         return true;
     };
-    */
     /**
      * register a plugin
      * @param {string} name
@@ -159,16 +157,11 @@ class Renaissance {
 const instance = new Renaissance();
 const renaissance = instance;
 const r = instance;
-// const registerAdapter = renaissance.registerAdapter;
-// const registerPlugin = renaissance.registerPlugin;
 renaissance.registerPlugin('utils', Utils);
-// const utils = renaissance.utils;
 
 export {
     Renaissance
     , renaissance
     , r
     , Component
-    // , registerAdapter
-    // , utils
 }
