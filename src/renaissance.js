@@ -77,6 +77,11 @@ class Renaissance {
      * @param {object} Adapter
      */
     registerAdapter(name, Adapter) {
+        // if name already defined on this, omit registration
+        if (typeof this.adapters[name] !== 'undefined') {
+            return false;
+        }
+
         let adapter = new Adapter();
         this.adapters[name] = adapter;
         return adapter;
@@ -106,7 +111,7 @@ class Renaissance {
      * @return {boolean} registered
      */
     registerPlugin(name, Plugin) {
-        // if name already defined on prototype, omit registration
+        // if name already defined on this, omit registration
         if (typeof this[name] !== 'undefined') {
             return false;
         }
