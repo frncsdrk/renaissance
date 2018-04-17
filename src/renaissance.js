@@ -2,7 +2,6 @@
 'use strict';
 import 'babel-core/register'
 // import 'babel-polyfill'
-import Utils from './plugins/Utils'
 
 class Component {
     /**
@@ -157,7 +156,6 @@ class Renaissance {
 const instance = new Renaissance();
 const renaissance = instance;
 const r = instance;
-renaissance.registerPlugin('utils', Utils);
 
 export {
     Renaissance
