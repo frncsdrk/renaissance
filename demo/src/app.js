@@ -2,10 +2,12 @@ import 'babel-core/register'
 // babel polyfill only one time
 // import 'babel-polyfill'
 import { r } from './../../dist/renaissance'
+import Utils from './plugins/Utils'
 import LocalStorage from './adapters/LocalStorage'
 import HelloWorld from './components/HelloWorld'
 import HelloWorldPlugin from './plugins/hello-plugin'
 
+const utilsPlugin = r.registerPlugin('utils', Utils);
 const helloPlugin = r.registerPlugin('hello', HelloWorldPlugin);
 const lsa = r.registerAdapter('localStorage', LocalStorage);
 
