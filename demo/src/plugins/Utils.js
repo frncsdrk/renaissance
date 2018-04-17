@@ -41,14 +41,16 @@ class Utils {
      * @param {string} selector
      * @returns {array} components
      */
-    attachTo(component, selector) {
+    attachTo(component, selector, triggerInit) {
         let componentArr = [];
         let nodes = this.getNodes(selector);
         // register a component for every found node
         for (let i = 0; i < nodes.length; i++) {
-            this.context.registerComponent(component, nodes[i]); // this.Blueprint
+            // this.context.registerComponent(component, nodes[i]); // this.Blueprint
+            component.addNode(nodes[i]);
             componentArr.push(component);
         }
+        component.onInit();
 
         return componentArr;
     };

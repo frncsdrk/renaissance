@@ -12,7 +12,8 @@
     "build:demo": "npm run build && npm run browserify:demo && npm run uglify:demo",
     "dev": "nodemon --ignore dist/ --ignore demo/ --ignore test/",
     "demo": "nodemon --ignore dist/ --ignore demo/dist/",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "tape -r babel-register test/**/*.js | faucet",
+    "test:nyc": "nyc npm test"
   },
   "repository": {
     "type": "git",
@@ -43,9 +44,13 @@
     "babel-preset-es2017": "^6.24.1",
     "babelify": "^8.0.0",
     "browserify": "^16.1.1",
+    "faucet": "^0.0.1",
     "nodemon": "^1.17.3",
+    "nyc": "^11.6.0",
     "renaissance-test": "^0.1.0",
     "renaissance-test-html-reporter": "^0.1.2",
+    "tape": "^4.9.0",
+    "tape-run": "^4.0.0",
     "uglify-js": "^3.3.21"
   }
 }
