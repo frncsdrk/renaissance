@@ -1,9 +1,11 @@
-import { r, Component } from './../../../dist/renaissance'
+import { r } from './../../../dist/renaissance'
+import BrowserComponent from './BrowserComponent'
 import helloMixin from '../mixins/hello-mixin'
 
-class HelloWorld extends Component {
+class HelloWorld extends BrowserComponent {
     constructor() {
         super();
+        console.log('nodes:', this.nodes);
         this.meta = {
             localStorage: r.adapters.localStorage
         };
@@ -11,7 +13,9 @@ class HelloWorld extends Component {
     }
 
     render() {
-        this.node.innerHTML = 'hello world';
+        for (let i = 0; i < this.nodes.length; i++) {
+            this.nodes[i].innerHTML = 'hello world';
+        }
     }
 
     init(component) {
