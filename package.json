@@ -31,9 +31,7 @@
   },
   "homepage": "https://github.com/frncsdrk/renaissance#readme",
   "dependencies": {
-    "babel-core": "^6.26.0",
-    "renaissance-append-html": "^0.1.1",
-    "renaissance-local-storage": "^0.1.1"
+    "babel-core": "^6.26.0"
   },
   "devDependencies": {
     "babel-cli": "^6.26.0",
@@ -47,8 +45,6 @@
     "faucet": "^0.0.1",
     "nodemon": "^1.17.3",
     "nyc": "^11.6.0",
-    "renaissance-test": "^0.1.0",
-    "renaissance-test-html-reporter": "^0.1.2",
     "tape": "^4.9.0",
     "tape-run": "^4.0.0",
     "uglify-js": "^3.3.21"
