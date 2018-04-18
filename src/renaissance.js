@@ -74,7 +74,7 @@ class Renaissance {
     /**
      * register an Adapter
      * @param {string} name
-     * @param {object} Adapter
+     * @param {constructor} Adapter
      */
     registerAdapter(name, Adapter) {
         // if name already defined on this, omit registration
@@ -89,7 +89,7 @@ class Renaissance {
     /**
      * register a mixin
      * @param {string} name
-     * @param {object} Component
+     * @param {constructor} Component
      * @param {function} callback
      * @returns {boolean}
      */
@@ -107,7 +107,7 @@ class Renaissance {
     /**
      * register a plugin
      * @param {string} name
-     * @param {function} Plugin
+     * @param {constructor} Plugin
      * @return {boolean} registered
      */
     registerPlugin(name, Plugin) {
