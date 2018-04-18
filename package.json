@@ -1,8 +1,8 @@
 {
   "name": "renaissance",
-  "version": "0.4.0",
+  "version": "0.4.1",
   "description": "renovating js components",
-  "main": "dist/renaissance.min.js",
+  "main": "dist/renaissance.js",
   "scripts": {
     "browserify:demo": "browserify -t babelify demo/src/app.js -o demo/dist/app.js",
     "uglify:demo": "uglifyjs demo/dist/app.js -o demo/dist/app.min.js --compress --mangle --source-map",
