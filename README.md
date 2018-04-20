@@ -26,9 +26,17 @@ make a mixin available to given component constructor and thus to all instances 
 
 base component class which you can derive all your components from
 
+### r.Component.trigger({string} event, {*} data)
+
+trigger a registered event
+
 ### r.Component.before({string} event, {function} callback)
 
 register a callback on the before handler of an event
+
+### r.Component.on({string} event, {function} callback)
+
+register a callback directly on the event
 
 ### r.Component.after({string} event, {function} callback)
 
