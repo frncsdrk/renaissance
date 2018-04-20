@@ -1,4 +1,7 @@
 # renaissance
+
+[![Build Status](https://travis-ci.org/frncsdrk/renaissance.svg?branch=master)](https://travis-ci.org/frncsdrk/renaissance)
+
 renovating js components  
 
 Originally inspired by [twitter's flightjs](https://flightjs.github.io/).
