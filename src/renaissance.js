@@ -10,12 +10,44 @@ class Component {
      * @returns {object} this
      */
     constructor() {
-        this.beforeMap = {};
-        this.afterMap = {};
+        // this.beforeMap = {};
+        // this.afterMap = {};
+        this._events = {};
 
         this.init && this.after('init', this.init);
 
         return this;
+    }
+
+    /**
+     * trigger component event handlers
+     * @param event
+     * @param data
+     */
+    trigger(event, data) {
+        let beforeArr = this._events['before.' + event];
+        let eventArr = this._events[event];
+        let afterArr = this._events['after.' + event];
+        let triggered = {};
+        if (Array.isArray(beforeArr) && beforeArr.length > 0) {
+            for (let i = 0; i < beforeArr.length; i++) {
+                beforeArr[i](data);
+            }
+            triggered.before = true;
+        }
+        if (Array.isArray(eventArr) && eventArr.length > 0) {
+            for (let i = 0; i < eventArr.length; i++) {
+                eventArr[i](data);
+            }
+            triggered.event = true;
+        }
+        if (Array.isArray(afterArr) && afterArr.length > 0) {
+            for (let i = 0; i < afterArr.length; i++) {
+                afterArr[i](data);
+            }
+            triggered.after = true;
+        }
+        return triggered;
     }
     /**
      * register before event
@@ -23,8 +55,28 @@ class Component {
      * @param {function} callback
      */
     before(event, callback) {
-        // if (typeof this.beforeMap !== 'object') this.beforeMap = {};
-        this.beforeMap[event] = callback;
+        if (typeof callback !== 'function') {
+            return false;
+        }
+        if (!Array.isArray(this._events['before.' + event])) {
+            this._events['before.' + event] = [];
+        }
+        this._events['before.' + event].push(callback);
+    }
+    /**
+     * add an event handler on component
+     * @param {string} event
+     * @param {function} callback
+     * @returns {*}
+     */
+    on(event, callback) {
+        if (typeof callback !== 'function') {
+            return false;
+        }
+        if (!Array.isArray(this._events[event])) {
+            this._events[event] = [];
+        }
+        this._events[event].push(callback);
     }
     /**
      *register after event
@@ -32,14 +84,19 @@ class Component {
      * @param {function} callback
      */
     after(event, callback) {
-        // if (typeof this.afterMap !== 'object') this.afterMap = {};
-        this.afterMap[event] = callback;
+        if (typeof callback !== 'function') {
+            return false;
+        }
+        if (!Array.isArray(this._events['after.' + event])) {
+            this._events['after.' + event] = [];
+        }
+        this._events['after.' + event].push(callback);
     }
     /**
      * callback for component instantiation
      */
     onInit() {
-        this.afterMap['init'] && this.afterMap['init'](this);
+        return this.trigger('init', this);
     }
 }
 
