@@ -43,10 +43,9 @@
     "babelify": "^8.0.0",
     "browserify": "^16.1.1",
     "faucet": "^0.0.1",
-    "nodemon": "^1.17.3",
+    "nodemon": "^1.18.6",
     "nyc": "^11.6.0",
     "tape": "^4.9.0",
-    "tape-run": "^4.0.0",
     "uglify-js": "^3.3.21"
   }
 }
