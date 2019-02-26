@@ -1,6 +1,6 @@
 {
   "name": "renaissance",
-  "version": "0.5.1",
+  "version": "0.5.22",
   "description": "renovating js components",
   "main": "dist/renaissance.js",
   "scripts": {
@@ -31,21 +31,21 @@
   },
   "homepage": "https://github.com/frncsdrk/renaissance#readme",
   "dependencies": {
-    "babel-core": "^6.26.0"
+    "babel-core": "^6.26.3"
   },
   "devDependencies": {
     "babel-cli": "^6.26.0",
-    "babel-minify": "^0.4.0",
+    "babel-minify": "^0.5.0",
     "babel-plugin-transform-object-rest-spread": "^6.26.0",
     "babel-plugin-transform-regenerator": "^6.26.0",
     "babel-preset-env": "^1.6.1",
     "babel-preset-es2017": "^6.24.1",
-    "babelify": "^8.0.0",
+    "babelify": "^10.0.0",
     "browserify": "^16.1.1",
     "faucet": "^0.0.1",
     "nodemon": "^1.18.6",
-    "nyc": "^11.6.0",
+    "nyc": "^13.3.0",
     "tape": "^4.9.0",
-    "uglify-js": "^3.3.21"
+    "uglify-js": "^3.4.9"
   }
 }
