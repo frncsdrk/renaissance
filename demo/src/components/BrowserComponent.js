@@ -20,20 +20,6 @@ class BrowserComponent extends Component {
         this.nodes.push(node);
     }
     /**
-     * add an event handler on component
-     * @param {string} nodeEvent
-     * @param {function} callback
-     * @returns {*}
-     */
-    // TODO: remove on
-    /*
-    on(nodeEvent, callback) {
-        for (let i = 0; i < this.nodes.length; i++) {
-            this.nodes[i].addEventListener(nodeEvent, callback);
-        }
-    }
-    */
-    /**
      * expose an event to other components and make it triggerable
      * (for custom events)
      * @param {string} eventName
