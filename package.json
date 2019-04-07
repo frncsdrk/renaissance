@@ -30,6 +30,10 @@
     "url": "https://github.com/frncsdrk/renaissance/issues"
   },
   "homepage": "https://github.com/frncsdrk/renaissance#readme",
+  "engines": {
+    "node": ">=8"
+  },
+  "engineStrict": true,
   "dependencies": {},
   "devDependencies": {
     "browserify": "^16.1.1",
