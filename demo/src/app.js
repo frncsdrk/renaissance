@@ -20,12 +20,12 @@ console.log(lsa.get('foo'));
 const hw = new HelloWorld();
 // on
 hw.on('sayhello', () => {
-    // mixin
-    hw.sayHello();
+  // mixin
+  hw.sayHello();
 })
 // expose
 hw.expose('trigger', () => {
-    console.log('hello trigger')
+  console.log('hello trigger')
 })
 r.utils.attachTo(hw, '#hello-world');
 
