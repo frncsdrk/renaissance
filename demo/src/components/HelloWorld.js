@@ -1,6 +1,6 @@
-import { r } from './../../../dist/renaissance'
-import BrowserComponent from './BrowserComponent'
-import helloMixin from '../mixins/hello-mixin'
+const { r } = require('../../../dist/renaissance')
+const BrowserComponent = require('./BrowserComponent')
+const helloMixin = require('../mixins/hello-mixin')
 
 class HelloWorld extends BrowserComponent {
     constructor() {
@@ -13,17 +13,18 @@ class HelloWorld extends BrowserComponent {
     }
 
     render() {
+        console.log('HelloWorld component render:', this.nodes)
         for (let i = 0; i < this.nodes.length; i++) {
             this.nodes[i].innerHTML = 'hello world';
         }
     }
 
-    init(component) {
-        component.render();
+    init() {
+        this.render();
     }
 }
 
 const registered = r.registerMixin('sayHello', HelloWorld, helloMixin);
 console.log('registered mixin:', registered);
 
-export default HelloWorld
+module.exports = HelloWorld
