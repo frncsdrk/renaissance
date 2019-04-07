@@ -1,4 +1,4 @@
-import { Component } from './../../../dist/renaissance'
+const { Component } = require('../../../dist/renaissance')
 
 class BrowserComponent extends Component {
     /**
@@ -25,11 +25,14 @@ class BrowserComponent extends Component {
      * @param {function} callback
      * @returns {*}
      */
+    // TODO: remove on
+    /*
     on(nodeEvent, callback) {
         for (let i = 0; i < this.nodes.length; i++) {
             this.nodes[i].addEventListener(nodeEvent, callback);
         }
     }
+    */
     /**
      * expose an event to other components and make it triggerable
      * (for custom events)
@@ -38,7 +41,7 @@ class BrowserComponent extends Component {
      * @returns {*}
      */
     expose(eventName, callback) {
-        document.addEventListener(evName, function(e) { cb(e, e.detail); });
+        document.addEventListener(eventName, function(e) { callback(e, e.detail); });
     }
     // trigger exposed events
     /**
@@ -47,11 +50,11 @@ class BrowserComponent extends Component {
      * @param {object} eventData
      * @returns {*}
      */
-    trigger(eventName, eventData) {
+    triggerExposed(eventName, eventData) {
         // console.log('evData:', evData);
         let ev = new CustomEvent(eventName, { detail: eventData });
         document.dispatchEvent(ev);
     }
 }
 
-export default BrowserComponent
+module.exports = BrowserComponent

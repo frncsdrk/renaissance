@@ -1,6 +1,6 @@
 // renaissance core
 'use strict';
-import 'babel-core/register'
+// import 'babel-core/register'
 // import 'babel-polyfill'
 
 class Component {
@@ -14,6 +14,7 @@ class Component {
         // this.afterMap = {};
         this._events = {};
 
+        console.log('Component constructor init:', this.init)
         this.init && this.after('init', this.init);
 
         return this;
@@ -184,9 +185,9 @@ const instance = new Renaissance();
 const renaissance = instance;
 const r = instance;
 
-export {
-    Renaissance
-    , renaissance
-    , r
-    , Component
+module.exports = {
+    Renaissance,
+    renaissance,
+    r,
+    Component
 }

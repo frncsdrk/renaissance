@@ -50,10 +50,11 @@ class Utils {
             component.addNode(nodes[i]);
             componentArr.push(component);
         }
-        component.onInit();
+        console.log('Utils component.onInit:', component.init.toString())
+        component.init();
 
         return componentArr;
     };
 }
 
-export default Utils
+module.exports = Utils
