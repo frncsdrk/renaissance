@@ -1,6 +1,3 @@
-// import test from 'tape'
-// import { Renaissance, r, Component } from './../src/renaissance'
-
 const test = require('tape')
 const { Renaissance, r, Component } = require('../src/renaissance')
 

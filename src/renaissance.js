@@ -1,7 +1,5 @@
 // renaissance core
 'use strict';
-// import 'babel-core/register'
-// import 'babel-polyfill'
 
 class Component {
     /**
