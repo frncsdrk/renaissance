@@ -12,7 +12,6 @@ class Component {
         // this.afterMap = {};
         this._events = {};
 
-        console.log('Component constructor init:', this.init)
         this.init && this.after('init', this.init);
 
         return this;
