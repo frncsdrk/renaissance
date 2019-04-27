@@ -1,10 +1,12 @@
 // renaissance core
 
 interface IBaseComponent {
+  init: Function
   trigger: Function
   before: Function
   on: Function
   after: Function
+  onInit: Function
 }
 
 // interface IComponent {
@@ -23,11 +25,10 @@ class Component implements IBaseComponent {
    * @returns {object} this
    */
   constructor() {
-    // this.beforeMap = {};
-    // this.afterMap = {};
     this._events = {};
 
-    this.init && this.after('init', this.init);
+    this.after('init', this.init);
+    this.onInit();
 
     return this;
   }
