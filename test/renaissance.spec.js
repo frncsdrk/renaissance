@@ -154,7 +154,7 @@ test('r.Component init defined in class', (t) => {
   t.end();
 });
 
-test('r.Component.onInit - init defined afterwards', (t) => {
+test('r.Component.onInit - init defined and called after instantiation', (t) => {
   let component = new Component();
   component.after('init', (component) => { component.foo = 'bar'; });
   t.equal(component._events['after.init'].length, 2);
