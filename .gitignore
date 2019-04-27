@@ -3,4 +3,4 @@ node_modules/*
 artifacts/*
 *.log
 .nyc_output
-demo/dist
+demo
