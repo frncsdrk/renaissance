@@ -1,7 +1,22 @@
 // renaissance core
-'use strict';
 
-class Component {
+interface IBaseComponent {
+  trigger: Function
+  before: Function
+  on: Function
+  after: Function
+}
+
+// interface IComponent {
+//   init: Function
+//   render: Function
+// }
+
+class Component implements IBaseComponent {
+
+  _events: { [key: string]: Function[] }
+  init() { }
+
   /**
    * component
    * @constructor
@@ -19,14 +34,18 @@ class Component {
 
   /**
    * trigger component event handlers
-   * @param event
-   * @param data
+   * @param {string} event
+   * @param {object} data
    */
-  trigger(event, data) {
+  trigger(event: string, data: object) {
     let beforeArr = this._events['before.' + event];
     let eventArr = this._events[event];
     let afterArr = this._events['after.' + event];
-    let triggered = {};
+    let triggered: { before: boolean, event: boolean, after: boolean } = {
+      before: false,
+      event: false,
+      after: false
+    };
     if (Array.isArray(beforeArr) && beforeArr.length > 0) {
       for (let i = 0; i < beforeArr.length; i++) {
         beforeArr[i](data);
@@ -52,14 +71,14 @@ class Component {
    * @param {string} event
    * @param {function} callback
    */
-  before(event, callback) {
+  before(event: string, callback: Function) {
     if (typeof callback !== 'function') {
       return false;
     }
     if (!Array.isArray(this._events['before.' + event])) {
       this._events['before.' + event] = [];
     }
-    this._events['before.' + event].push(callback);
+    return this._events['before.' + event].push(callback);
   }
   /**
    * add an event handler on component
@@ -67,28 +86,28 @@ class Component {
    * @param {function} callback
    * @returns {*}
    */
-  on(event, callback) {
+  on(event: string, callback: Function) {
     if (typeof callback !== 'function') {
       return false;
     }
     if (!Array.isArray(this._events[event])) {
       this._events[event] = [];
     }
-    this._events[event].push(callback);
+    return this._events[event].push(callback);
   }
   /**
    *register after event
    * @param {string} event
    * @param {function} callback
    */
-  after(event, callback) {
+  after(event: string, callback: Function) {
     if (typeof callback !== 'function') {
       return false;
     }
     if (!Array.isArray(this._events['after.' + event])) {
       this._events['after.' + event] = [];
     }
-    this._events['after.' + event].push(callback);
+    return this._events['after.' + event].push(callback);
   }
   /**
    * callback for component instantiation
@@ -99,6 +118,10 @@ class Component {
 }
 
 class Renaissance {
+
+  adapters: { [key: string]: object }
+  [index: string]: object
+
   constructor() {
     // private
     // registry filled and emptied when attaching and unattaching components to DOM
@@ -131,7 +154,7 @@ class Renaissance {
    * @param {string} name
    * @param {constructor} Adapter
    */
-  registerAdapter(name, Adapter) {
+  registerAdapter(name: string, Adapter: any) {
     // if name already defined on this, omit registration
     if (typeof this.adapters[name] !== 'undefined') {
       return false;
@@ -148,7 +171,7 @@ class Renaissance {
    * @param {function} callback
    * @returns {boolean}
    */
-  registerMixin(name, Component, callback) {
+  registerMixin(name: string, Component: any, callback: Function) {
     // avoid overwriting other functionality
     if (typeof Component.prototype[name] !== 'undefined') {
       return false;
@@ -165,7 +188,7 @@ class Renaissance {
    * @param {constructor} Plugin
    * @return {boolean} registered
    */
-  registerPlugin(name, Plugin) {
+  registerPlugin(name: string, Plugin: any) {
     // if name already defined on this, omit registration
     if (typeof this[name] !== 'undefined') {
       return false;
@@ -182,9 +205,9 @@ const instance = new Renaissance();
 const renaissance = instance;
 const r = instance;
 
-module.exports = {
-  Renaissance,
-  renaissance,
-  r,
-  Component
+export {
+  Renaissance
+  , renaissance
+  , r
+  , Component
 }
