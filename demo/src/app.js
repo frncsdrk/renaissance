@@ -1,6 +1,3 @@
-// import 'babel-core/register'
-// babel polyfill only one time
-// import 'babel-polyfill'
 const { r } = require('../../dist/renaissance')
 const Utils = require('./plugins/Utils')
 const LocalStorage = require('./adapters/LocalStorage')
