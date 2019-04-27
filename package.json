@@ -4,14 +4,9 @@
   "description": "renovating js components",
   "main": "dist/renaissance.js",
   "scripts": {
-    "browserify:demo": "browserify demo/src/app.js -o demo/dist/app.js",
-    "uglify:demo": "uglifyjs demo/dist/app.js -o demo/dist/app.min.js --compress --mangle --source-map",
     "typescript": "tsc",
-    "minify": "minify dist/renaissance.js --out-file dist/renaissance.min.js",
     "build": "npm run typescript",
-    "build:demo": "npm run build && npm run browserify:demo && npm run uglify:demo",
     "dev": "nodemon --ignore dist/ --ignore demo/ --ignore test/",
-    "demo": "nodemon --ignore dist/ --ignore demo/dist/",
     "test": "tape test/**/*.js | faucet",
     "test:nyc": "nyc npm test"
   },
@@ -32,12 +27,10 @@
   "homepage": "https://github.com/frncsdrk/renaissance#readme",
   "dependencies": {},
   "devDependencies": {
-    "browserify": "^16.1.1",
     "faucet": "^0.0.1",
     "nodemon": "^1.18.6",
-    "nyc": "^13.3.0",
+    "nyc": "^14.1.0",
     "tape": "^4.9.0",
-    "typescript": "^3.3.4000",
-    "uglify-js": "^3.4.9"
+    "typescript": "^3.3.4000"
   }
 }
