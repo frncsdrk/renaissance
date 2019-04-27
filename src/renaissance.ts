@@ -14,8 +14,8 @@ interface IBaseComponent {
 
 class Component implements IBaseComponent {
 
-  _events: { [key :string] :Function[] }
-  init () {}
+  _events: { [key: string]: Function[] }
+  init() { }
 
   /**
    * component
