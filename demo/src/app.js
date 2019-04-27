@@ -1,11 +1,11 @@
-import 'babel-core/register'
+// import 'babel-core/register'
 // babel polyfill only one time
 // import 'babel-polyfill'
-import { r } from './../../dist/renaissance'
-import Utils from './plugins/Utils'
-import LocalStorage from './adapters/LocalStorage'
-import HelloWorld from './components/HelloWorld'
-import HelloWorldPlugin from './plugins/hello-plugin'
+const { r } = require('../../dist/renaissance')
+const Utils = require('./plugins/Utils')
+const LocalStorage = require('./adapters/LocalStorage')
+const HelloWorld = require('./components/HelloWorld')
+const HelloWorldPlugin = require('./plugins/hello-plugin')
 
 const utilsPlugin = r.registerPlugin('utils', Utils);
 const helloPlugin = r.registerPlugin('hello', HelloWorldPlugin);

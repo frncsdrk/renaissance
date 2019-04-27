@@ -13,4 +13,4 @@ class HelloWorld {
   }
 }
 
-export default HelloWorld
+module.exports = HelloWorld
