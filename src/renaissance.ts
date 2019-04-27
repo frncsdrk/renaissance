@@ -7,15 +7,15 @@ interface IBaseComponent {
   after: Function
 }
 
-interface IComponent {
-  init: Function
-  render: Function
-}
+// interface IComponent {
+//   init: Function
+//   render: Function
+// }
 
 class Component implements IBaseComponent {
 
-  _events: { [key :string] :object[] }
-  // init: Function
+  _events: { [key :string] :Function[] }
+  init () {}
 
   /**
    * component
