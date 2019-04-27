@@ -1,4 +1,4 @@
-import { Component } from './../../../dist/renaissance'
+const { Component } = require('../../../dist/renaissance')
 
 class BrowserComponent extends Component {
   /**
@@ -54,4 +54,4 @@ class BrowserComponent extends Component {
   }
 }
 
-export default BrowserComponent
+module.exports = BrowserComponent
