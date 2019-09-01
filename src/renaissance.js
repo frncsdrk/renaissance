@@ -1,24 +1,5 @@
 // renaissance core
-
-interface IBaseComponent {
-  init: Function
-  trigger: Function
-  before: Function
-  on: Function
-  after: Function
-  onInit: Function
-}
-
-// interface IComponent {
-//   init: Function
-//   render: Function
-// }
-
-class Component implements IBaseComponent {
-
-  _events: { [key: string]: Function[] }
-  init() { }
-
+class Component {
   /**
    * component
    * @constructor
@@ -38,11 +19,11 @@ class Component implements IBaseComponent {
    * @param {string} event
    * @param {object} data
    */
-  trigger(event: string, data: object) {
+  trigger(event, data) {
     let beforeArr = this._events['before.' + event];
     let eventArr = this._events[event];
     let afterArr = this._events['after.' + event];
-    let triggered: { before: boolean, event: boolean, after: boolean } = {
+    let triggered = {
       before: false,
       event: false,
       after: false
@@ -72,7 +53,7 @@ class Component implements IBaseComponent {
    * @param {string} event
    * @param {function} callback
    */
-  before(event: string, callback: Function) {
+  before(event, callback) {
     if (typeof callback !== 'function') {
       return false;
     }
@@ -87,7 +68,7 @@ class Component implements IBaseComponent {
    * @param {function} callback
    * @returns {*}
    */
-  on(event: string, callback: Function) {
+  on(event, callback) {
     if (typeof callback !== 'function') {
       return false;
     }
@@ -101,7 +82,7 @@ class Component implements IBaseComponent {
    * @param {string} event
    * @param {function} callback
    */
-  after(event: string, callback: Function) {
+  after(event, callback) {
     if (typeof callback !== 'function') {
       return false;
     }
@@ -119,10 +100,6 @@ class Component implements IBaseComponent {
 }
 
 class Renaissance {
-
-  adapters: { [key: string]: object }
-  [index: string]: object
-
   constructor() {
     // private
     // registry filled and emptied when attaching and unattaching components to DOM
@@ -155,7 +132,7 @@ class Renaissance {
    * @param {string} name
    * @param {constructor} Adapter
    */
-  registerAdapter(name: string, Adapter: any) {
+  registerAdapter(name, Adapter) {
     // if name already defined on this, omit registration
     if (typeof this.adapters[name] !== 'undefined') {
       return false;
@@ -172,7 +149,7 @@ class Renaissance {
    * @param {function} callback
    * @returns {boolean}
    */
-  registerMixin(name: string, Component: any, callback: Function) {
+  registerMixin(name, Component, callback) {
     // avoid overwriting other functionality
     if (typeof Component.prototype[name] !== 'undefined') {
       return false;
@@ -189,7 +166,7 @@ class Renaissance {
    * @param {constructor} Plugin
    * @return {boolean} registered
    */
-  registerPlugin(name: string, Plugin: any) {
+  registerPlugin(name, Plugin) {
     // if name already defined on this, omit registration
     if (typeof this[name] !== 'undefined') {
       return false;
