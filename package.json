@@ -1,6 +1,6 @@
 {
   "name": "renaissance",
-  "version": "0.6.1",
+  "version": "0.6.2",
   "description": "renovating js components",
   "main": "dist/renaissance.js",
   "scripts": {
