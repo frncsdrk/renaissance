@@ -1,14 +1,16 @@
 {
   "name": "renaissance",
-  "version": "0.6.1",
+  "version": "0.6.2",
   "description": "renovating js components",
   "main": "dist/renaissance.js",
   "scripts": {
-    "typescript": "tsc",
-    "build": "npm run typescript",
-    "dev": "nodemon --ignore dist/ --ignore demo/ --ignore test/",
-    "test": "tape test/**/*.js | faucet",
-    "test:nyc": "nyc npm test"
+    "build": "npm run build:compile && npm run build:uglify",
+    "build:compile": "coffee -c -t -m -o dist/ src/",
+    "build:uglify": "uglifyjs --compress --mangle -o dist/renaissance.min.js -- dist/renaissance.js",
+    "dev": "nodemon --ignore dist/ --ignore test/",
+    "test": "tape test/**/*.js | tap-spec",
+    "test:nyc": "nyc npm test",
+    "test:raw": "tape test/**/*.js"
   },
   "repository": {
     "type": "git",
@@ -25,12 +27,29 @@
     "url": "https://github.com/frncsdrk/renaissance/issues"
   },
   "homepage": "https://github.com/frncsdrk/renaissance#readme",
+<<<<<<< HEAD
+=======
+  "engines": {
+    "node": ">=10"
+  },
+  "engineStrict": true,
+>>>>>>> 5af278f... Port to coffeescript
   "dependencies": {},
   "devDependencies": {
-    "faucet": "^0.0.1",
+    "@babel/core": "^7.6.0",
+    "@babel/preset-env": "^7.6.0",
+    "@fellow/eslint-plugin-coffee": "^0.4.13",
+    "coffeescript": "^2.4.1",
+    "eslint": "^6.4.0",
+    "eslint-config-standard": "^14.1.0",
+    "eslint-plugin-import": "^2.18.2",
+    "eslint-plugin-node": "^10.0.0",
+    "eslint-plugin-promise": "^4.2.1",
+    "eslint-plugin-standard": "^4.0.1",
     "nodemon": "^1.19.1",
     "nyc": "^14.1.1",
+    "tap-spec": "^5.0.0",
     "tape": "^4.11.0",
-    "typescript": "^3.6.2"
+    "uglify-es": "^3.3.9"
   }
 }

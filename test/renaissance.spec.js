@@ -162,10 +162,14 @@ test('r.Component.onInit - init defined and called after instantiation', (t) => 
   let component = new Component();
   component.after('init', (component) => { component.foo = 'bar'; });
 <<<<<<< HEAD
+<<<<<<< HEAD
   t.equal(component._events['after.init'].length, 1);
 =======
   t.equal(component._events['after.init'].length, 2);
 >>>>>>> refs/rewritten/typescript
+=======
+  t.equal(component._events['after.init'].length, 1);
+>>>>>>> 5af278f... Port to coffeescript
   t.ok(typeof component.onInit === 'function');
   const result = component.onInit();
   t.ok(result.after);
