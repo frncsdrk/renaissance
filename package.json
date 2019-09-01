@@ -32,9 +32,9 @@
   "dependencies": {},
   "devDependencies": {
     "faucet": "^0.0.1",
-    "nodemon": "^1.18.6",
-    "nyc": "^14.1.0",
-    "tape": "^4.9.0",
-    "typescript": "^3.3.4000"
+    "nodemon": "^1.19.1",
+    "nyc": "^14.1.1",
+    "tape": "^4.11.0",
+    "typescript": "^3.6.2"
   }
 }
