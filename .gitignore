@@ -4,3 +4,4 @@ artifacts/*
 *.log
 .nyc_output
 demo
+test/js

@@ -1,6 +1,6 @@
 {
   "name": "renaissance",
-  "version": "0.6.2",
+  "version": "0.6.3",
   "description": "renovating js components",
   "main": "dist/renaissance.js",
   "scripts": {
@@ -8,9 +8,10 @@
     "build:compile": "coffee -c -t -m -o dist/ src/",
     "build:uglify": "uglifyjs --compress --mangle -o dist/renaissance.min.js -- dist/renaissance.js",
     "dev": "nodemon --ignore dist/ --ignore test/",
-    "test": "tape test/**/*.js | tap-spec",
-    "test:nyc": "nyc npm test",
-    "test:raw": "tape test/**/*.js"
+    "test": "npm run test:raw | tap-spec",
+    "test:compile": "coffee -c -t -o test/js test/",
+    "test:nyc": "npm run test:compile && nyc npm test",
+    "test:raw": "npm run test:compile && tape test/js/**/*.js"
   },
   "repository": {
     "type": "git",
