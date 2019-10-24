@@ -28,13 +28,6 @@
     "url": "https://github.com/frncsdrk/renaissance/issues"
   },
   "homepage": "https://github.com/frncsdrk/renaissance#readme",
-<<<<<<< HEAD
-=======
-  "engines": {
-    "node": ">=10"
-  },
-  "engineStrict": true,
->>>>>>> 5af278f... Port to coffeescript
   "dependencies": {},
   "devDependencies": {
     "@babel/core": "^7.6.0",
