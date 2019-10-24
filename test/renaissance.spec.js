@@ -1,5 +1,9 @@
 const test = require('tape')
+<<<<<<< HEAD
 const { Renaissance, r, Component } = require('../src/renaissance')
+=======
+const { Renaissance, r, Component } = require('../dist/renaissance')
+>>>>>>> refs/rewritten/typescript
 
 class TestPlugin {
   constructor(context) {
@@ -157,7 +161,11 @@ test('r.Component init defined in class', (t) => {
 test('r.Component.onInit - init defined afterwards', (t) => {
   let component = new Component();
   component.after('init', (component) => { component.foo = 'bar'; });
+<<<<<<< HEAD
   t.equal(component._events['after.init'].length, 1);
+=======
+  t.equal(component._events['after.init'].length, 2);
+>>>>>>> refs/rewritten/typescript
   t.ok(typeof component.onInit === 'function');
   const result = component.onInit();
   t.ok(result.after);
