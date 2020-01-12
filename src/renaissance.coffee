@@ -186,8 +186,8 @@ renaissance = instance
 r = instance
 
 module.exports = {
-  Renaissance
-  , renaissance
-  , r
-  , Component
+  Renaissance,
+  renaissance,
+  r,
+  Component
 }
