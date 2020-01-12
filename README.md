@@ -1,14 +1,14 @@
 # renaissance
 
-[![Build Status](https://travis-ci.org/frncsdrk/renaissance.svg?branch=master)](https://travis-ci.org/frncsdrk/renaissance)
+[![Build Status](https://api.cirrus-ci.com/github/frncsdrk/renaissance.svg)](https://cirrus-ci.com/github/frncsdrk/renaissance)
 
-structure your apps 
+structure your apps
 
 Originally inspired by [twitter's flightjs](https://flightjs.github.io/).
 
 ## usage
 
-For an example on how renaissance components, adapters and plugins work together  
+For an example on how renaissance components, adapters and plugins work together
 you can have a look at the [renaissance-demo repo](https://github.com/frncsdrk/renaissance-demo).
 
 ## API
@@ -48,4 +48,3 @@ register a callback on the after handler of an event
 ### r.Component.onInit()
 
 with this method you can call the handler for the `init`-method
-
