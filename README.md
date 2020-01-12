@@ -48,3 +48,7 @@ register a callback on the after handler of an event
 ### r.Component.onInit()
 
 with this method you can call the handler for the `init`-method
+
+## License
+
+[MIT](https://github.com/frncsdrk/renaissance/blob/master/LICENSE) (c) 2016 - 2020 frncsdrk and contributors
