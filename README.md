@@ -2,11 +2,11 @@
 
 [![Build Status](https://api.cirrus-ci.com/github/frncsdrk/renaissance.svg)](https://cirrus-ci.com/github/frncsdrk/renaissance)
 
-structure your apps
+Structure your apps
 
 Originally inspired by [twitter's flightjs](https://flightjs.github.io/).
 
-## usage
+## Usage
 
 For an example on how renaissance components, adapters and plugins work together
 you can have a look at the [renaissance-demo repo](https://github.com/frncsdrk/renaissance-demo).
@@ -48,6 +48,14 @@ register a callback on the after handler of an event
 ### r.Component.onInit()
 
 with this method you can call the handler for the `init`-method
+
+## Contributing
+
+See [CONTRIBUTING](https://github.com/frncsdrk/renaissance/blob/master/CONTRIBUTING.md)
+
+## Credits
+
+See [CREDITS](https://github.com/frncsdrk/renaissance/blob/master/CREDITS)
 
 ## License
 
