@@ -1,6 +1,8 @@
 # renaissance
 
-[![Build Status](https://api.cirrus-ci.com/github/frncsdrk/renaissance.svg)](https://cirrus-ci.com/github/frncsdrk/renaissance)
+[![Test Status](https://github.com/frncsdrk/renaissance/workflows/test/badge.svg?branch)](https://github.com/frncsdrk/avatar/actions)
+
+[![Publish Status](https://github.com/frncsdrk/renaissance/workflows/publish/badge.svg?branch=master&event=push)](https://github.com/frncsdrk/avatar/actions)
 
 Structure your apps
 
