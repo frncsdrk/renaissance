@@ -30,19 +30,19 @@
   "homepage": "https://github.com/frncsdrk/renaissance#readme",
   "dependencies": {},
   "devDependencies": {
-    "@babel/core": "^7.9.0",
-    "@babel/preset-env": "^7.9.5",
+    "@babel/core": "^7.10.4",
+    "@babel/preset-env": "^7.10.4",
     "coffeescript": "^2.5.1",
-    "eslint": "^6.8.0",
+    "eslint": "^7.4.0",
     "eslint-config-standard": "^14.1.1",
-    "eslint-plugin-import": "^2.20.2",
+    "eslint-plugin-import": "^2.22.0",
     "eslint-plugin-node": "^11.1.0",
     "eslint-plugin-promise": "^4.2.1",
     "eslint-plugin-standard": "^4.0.1",
-    "nodemon": "^2.0.3",
-    "nyc": "^15.0.1",
+    "nodemon": "^2.0.4",
+    "nyc": "^15.1.0",
     "tap-spec": "^5.0.0",
-    "tape": "^4.13.2",
+    "tape": "^5.0.1",
     "uglify-es": "^3.3.9"
   }
 }
