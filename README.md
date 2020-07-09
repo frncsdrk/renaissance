@@ -1,8 +1,6 @@
 # renaissance
 
-[![Test Status](https://github.com/frncsdrk/renaissance/workflows/test/badge.svg?branch)](https://github.com/frncsdrk/avatar/actions)
-
-[![Publish Status](https://github.com/frncsdrk/renaissance/workflows/publish/badge.svg?branch=master&event=push)](https://github.com/frncsdrk/avatar/actions)
+[![Test Status](https://github.com/frncsdrk/renaissance/workflows/test/badge.svg?branch)](https://github.com/frncsdrk/renaissance/actions)
 
 Structure your apps
 
