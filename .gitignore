@@ -1,7 +1,7 @@
-.idea/*
-node_modules/*
-artifacts/*
-*.log
+.idea
+node_modules
+artifacts
 .nyc_output
-demo
 test/js
+
+*.log
