@@ -11,9 +11,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
   // renaissance core
   var Component, Renaissance, instance, r, renaissance;
 
-  Component =
-  /*#__PURE__*/
-  function () {
+  Component = /*#__PURE__*/function () {
     /*
     component
     @constructor
@@ -170,9 +168,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
     return Component;
   }();
 
-  Renaissance =
-  /*#__PURE__*/
-  function () {
+  Renaissance = /*#__PURE__*/function () {
     function Renaissance() {
       _classCallCheck(this, Renaissance);
 
