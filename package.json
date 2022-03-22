@@ -28,21 +28,20 @@
     "url": "https://github.com/frncsdrk/renaissance/issues"
   },
   "homepage": "https://github.com/frncsdrk/renaissance#readme",
-  "dependencies": {},
   "devDependencies": {
-    "@babel/core": "^7.15.0",
-    "@babel/preset-env": "^7.15.0",
+    "@babel/core": "^7.17.8",
+    "@babel/preset-env": "^7.16.11",
     "@randomgoods/tap-spec": "^5.0.1",
-    "coffeescript": "^2.5.1",
+    "coffeescript": "^2.6.1",
     "eslint": "^7.32.0",
     "eslint-config-standard": "^16.0.3",
     "eslint-plugin-import": "^2.24.0",
     "eslint-plugin-node": "^11.1.0",
     "eslint-plugin-promise": "^5.1.0",
     "eslint-plugin-standard": "^4.1.0",
-    "nodemon": "^2.0.12",
+    "nodemon": "^2.0.15",
     "nyc": "^15.1.0",
-    "tape": "^5.3.1",
+    "tape": "^5.5.2",
     "uglify-es": "^3.3.9"
   }
 }
