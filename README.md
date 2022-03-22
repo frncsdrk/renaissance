@@ -59,4 +59,4 @@ See [CREDITS](https://github.com/frncsdrk/renaissance/blob/master/CREDITS)
 
 ## License
 
-[MIT](https://github.com/frncsdrk/renaissance/blob/master/LICENSE) (c) 2016 - 2021 frncsdrk and contributors
+[MIT](https://github.com/frncsdrk/renaissance/blob/master/LICENSE) (c) 2016 - 2022 frncsdrk and contributors
