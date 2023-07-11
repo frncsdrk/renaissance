@@ -39,7 +39,7 @@
     "eslint-plugin-node": "^11.1.0",
     "eslint-plugin-promise": "^5.1.0",
     "eslint-plugin-standard": "^4.1.0",
-    "nodemon": "^2.0.22",
+    "nodemon": "^3.0.1",
     "nyc": "^15.1.0",
     "tape": "^5.6.4",
     "uglify-es": "^3.3.9"
